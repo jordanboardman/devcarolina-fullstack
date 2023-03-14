@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BaseLayout from "./components/layout/BaseLayout.js";
-import App from "./App";
+import App from "./components/App";
 import Login from "./components/Login.js";
 import Register from "./components/Register.js";
 import Error from "./components/Error";
