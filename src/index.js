@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import BaseLayout from "./components/layout/BaseLayout.jsx";
-import App from "./components/App";
-import Login from "./components/Login.jsx";
-import Register from "./components/Register.jsx";
+import BaseLayout from "./components/layout/BaseLayout.js";
+import App from "./App";
+import Login from "./components/Login.js";
+import Register from "./components/Register.js";
 import Error from "./components/Error";
 import "./index.css";
 
