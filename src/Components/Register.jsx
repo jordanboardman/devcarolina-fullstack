@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -7,37 +7,37 @@ import FormLabel from "@mui/material/FormLabel";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
-import ClassCodeEntry from "./ClassCodeEntry";
+// import ClassCodeEntry from "./ClassCodeEntry";
 
 const Register = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [userType, setUserType] = useState("");
-  const [code, setCode] = useState("");
+  // const [username, setUsername] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [userType, setUserType] = useState("");
+  // const [code, setCode] = useState("");
 
-  const handleCode = (code) => {
-    setCode(code);
-  };
+  //   const handleCode = (code) => {
+  //     setCode(code);
+  //   };
 
-  function createUser(e) {
-    e.preventDefault();
-    fetch("http://localhost:3001/createuser", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: username,
-        password: password,
-        role: userType,
-        code: code,
-      }),
-    })
-      .then((res) => res.text(), console.log("in response"))
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
-  }
+  //   function createUser(e) {
+  //     e.preventDefault();
+  //     fetch("http://localhost:3001/createuser", {
+  //       method: "POST",
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         username: username,
+  //         password: password,
+  //         role: userType,
+  //         code: code,
+  //       }),
+  //     })
+  //       .then((res) => res.text(), console.log("in response"))
+  //       .then((data) => console.log(data))
+  //       .catch((err) => console.log(err));
+  //   }
   return (
     <>
       <div className="login">
@@ -55,9 +55,9 @@ const Register = () => {
           <TextField
             id="outlined-email"
             label="Email"
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
+            // onChange={(e) => {
+            //   setUsername(e.target.value);
+            // }}
           />
           <br />
 
@@ -66,9 +66,9 @@ const Register = () => {
             label="Password"
             type="password"
             autoComplete="current-password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
+            // onChange={(e) => {
+            //   setPassword(e.target.value);
+            // }}
           />
           <br />
 
@@ -85,9 +85,9 @@ const Register = () => {
             </FormLabel>
             <RadioGroup
               name="user-type-radio-group"
-              onChange={(e) => {
-                setUserType(e.target.value);
-              }}
+              // onChange={(e) => {
+              //   setUserType(e.target.value);
+              // }}
             >
               <FormControlLabel
                 value="student"
@@ -121,19 +121,19 @@ const Register = () => {
           </FormControl>
           <br />
 
-          <ClassCodeEntry
-            user={userType}
-            handleCode={handleCode}
-            onChange={(e) => {
-              setCode(e.target.value);
-            }}
-          />
+          {/* <ClassCodeEntry
+          user={userType}
+          handleCode={handleCode}
+          onChange={(e) => {
+            setCode(e.target.value);
+          }}
+        /> */}
           <br />
 
           <Button
             variant="contained"
             sx={{ backgroundColor: "#E13C45", borderRadius: "52px" }}
-            onClick={createUser}
+            // onClick={createUser}
           >
             Register
           </Button>
