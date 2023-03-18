@@ -26,41 +26,11 @@ const Navbar = (props) => {
         justifyContent: "space-evenly",
       }}
     >
-      <img
-        src="./Logos/Logo_Dark Background.png"
-        alt="rudi logo"
-        className="logo"
-      />
-
       <Divider sx={{ backgroundColor: "white" }} />
       <List>
         <Typography sx={{ fontWeight: "bold" }}>
           <Link to="/" className="link">
             Home
-          </Link>
-        </Typography>
-
-        <Typography sx={{ fontWeight: "bold" }}>
-          <Link to="/about" className="link">
-            About
-          </Link>
-        </Typography>
-
-        <Typography sx={{ fontWeight: "bold" }}>
-          <Link to="/students" className="link">
-            Students
-          </Link>
-        </Typography>
-
-        <Typography sx={{ fontWeight: "bold" }}>
-          <Link to="/teachers" className="link">
-            Teachers
-          </Link>
-        </Typography>
-
-        <Typography sx={{ fontWeight: "bold" }}>
-          <Link to="/rudiments" className="link">
-            Rudiments!
           </Link>
         </Typography>
       </List>
@@ -98,13 +68,8 @@ const Navbar = (props) => {
           >
             {/* <MenuIcon /> */}
           </IconButton>
-          <Box sx={{ display: "flex" }}>
-            <img
-              src="./Logos/Logo_Dark Background.png"
-              alt="rudi logo"
-              className="logo"
-            />
-          </Box>
+          {/* Feel free to put a Ripple Logo here */}
+          <Box sx={{ display: "flex" }}></Box>
           <Box
             sx={{
               display: { xs: "none", sm: "block" },
@@ -114,30 +79,6 @@ const Navbar = (props) => {
               <Typography sx={{ padding: "10px", fontWeight: "bold" }}>
                 <Link to="/" className="link">
                   Home
-                </Link>
-              </Typography>
-
-              <Typography sx={{ padding: "10px", fontWeight: "bold" }}>
-                <Link to="/about" className="link">
-                  About
-                </Link>
-              </Typography>
-
-              {/* <Typography sx={{ padding: "10px", fontWeight: "bold" }}>
-                <Link to="/students" className="link">
-                  Students
-                </Link>
-              </Typography>
-
-              <Typography sx={{ padding: "10px", fontWeight: "bold" }}>
-                <Link to="/teachers" className="link">
-                  Teachers
-                </Link>
-              </Typography> */}
-
-              <Typography sx={{ padding: "10px", fontWeight: "bold" }}>
-                <Link to="/rudiments" className="link">
-                  Rudiments!
                 </Link>
               </Typography>
 

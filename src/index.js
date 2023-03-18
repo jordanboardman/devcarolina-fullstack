@@ -6,6 +6,7 @@ import BaseLayout from "./components/layout/BaseLayout.js";
 import Login from "./components/Login.js";
 import Register from "./components/Register.js";
 import Error from "./components/Error";
+import Feature1 from "./components/Feature1";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -18,6 +19,7 @@ root.render(
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="*" element={<Error />} />
+          <Route path="/feature1" element={<Feature1 />} />
         </Routes>
       </BaseLayout>
     </Router>
