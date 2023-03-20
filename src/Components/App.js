@@ -14,6 +14,7 @@ import CardActionArea from "@mui/material/CardActionArea";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
+// import Image from "mui-image";
 
 const theme = createTheme();
 
@@ -32,7 +33,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <main>
-        <Box
+        {/* <Box
           component="img"
           sx={{
             height: 233,
@@ -42,7 +43,14 @@ export default function App() {
           }}
           alt="person with changes in hands"
           src="public/photos/hands-with-change.jpg"
-        />
+        /> */}
+        {/* <Box>
+          <Image
+            src="/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/public/photos/hands-with-change.jpg"
+            alt="hands"
+          />
+        </Box> */}
+
         <Box
           sx={{
             pt: 20,
