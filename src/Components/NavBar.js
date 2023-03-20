@@ -22,7 +22,7 @@ const Navbar = (props) => {
       onClick={handleDrawerToggle}
       sx={{
         textAlign: "center",
-        backgroundColor: "#2B2C42",
+        backgroundColor: "#698269",
         justifyContent: "space-evenly",
       }}
     >
@@ -55,7 +55,7 @@ const Navbar = (props) => {
         <Toolbar
           sx={{
             display: "flex",
-            backgroundColor: "#2B2C42",
+            backgroundColor: "#698269",
             justifyContent: "space-between",
           }}
         >
@@ -84,7 +84,7 @@ const Navbar = (props) => {
 
               <Button
                 variant="contained"
-                sx={{ backgroundColor: "#E13C45", borderRadius: "40px" }}
+                sx={{ backgroundColor: "#AA5656", borderRadius: "40px" }}
               >
                 <Link to="/login" className="link">
                   Login
@@ -92,7 +92,7 @@ const Navbar = (props) => {
               </Button>
               <Button
                 variant="contained"
-                sx={{ backgroundColor: "#E13C45", borderRadius: "40px" }}
+                sx={{ backgroundColor: "#AA5656", borderRadius: "40px" }}
               >
                 <Link to="/register" className="link">
                   Register

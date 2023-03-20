@@ -32,13 +32,21 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <main>
-        {/* Hero unit */}
+        <Box
+          component="img"
+          sx={{
+            height: 233,
+            width: 350,
+            maxHeight: { xs: 233, md: 167 },
+            maxWidth: { xs: 350, md: 250 },
+          }}
+          alt="person with changes in hands"
+          src="public/photos/hands-with-change.jpg"
+        />
         <Box
           sx={{
             pt: 20,
             pb: 20,
-            backgroundImage:
-              "/Photo Assets/drum-sticks-drumming-beat-rhythm-on-drum-surface-w-2021-09-09-17-39-38-utc.jpg",
           }}
         >
           <Container maxWidth="sm">
@@ -49,7 +57,7 @@ export default function App() {
               color="#2B2C42"
               gutterBottom
             >
-              LEARN THE BASICS
+              <i>Spare</i> Change Can Create <i>Big Change</i>
             </Typography>
             <Typography
               variant="h5"
@@ -57,7 +65,8 @@ export default function App() {
               color="text.secondary"
               paragraph
             >
-              Helping students master the building blocks of rudiments
+              Helping businesses and non-profits gain the yearly funding they
+              deserve
             </Typography>
             <Stack
               sx={{ pt: 4 }}
@@ -65,14 +74,14 @@ export default function App() {
               spacing={2}
               justifyContent="center"
             >
-              <Link to="/rudiments" underline="none" className="link">
+              <Link to="/about" underline="none" className="link">
                 <Button
                   size="large"
                   sx={{
                     borderRadius: "52px",
                     height: "77px",
                     width: "317px",
-                    backgroundColor: "#E13C45",
+                    backgroundColor: "#AA5656",
                   }}
                   variant="contained"
                 >
@@ -83,10 +92,7 @@ export default function App() {
           </Container>
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
-          {/* End hero unit */}
-          {/* What is Rudi */}
           <Grid item xs={12} md={6} sx={{ pb: 10 }}>
-            {/* Jordan/ I took out a href="*" tag in the CardActionArea below. Feel free to put it back if needed :-D */}
             <CardActionArea component="a">
               <Card sx={{ display: "flex" }}>
                 <CardMedia
@@ -104,17 +110,10 @@ export default function App() {
                       color: "#2B2C42",
                     }}
                   >
-                    What Is Rudi?
+                    What Is Ripple?
                   </Typography>
                   <Typography variant="subtitle1" paragraph>
-                    Rudi is a progression based learning platform which makes
-                    learning rudiments a fun and easy game! It can be hard to
-                    get students motivated to learn the basics, but Rudi
-                    provides a structured learning environment to allow students
-                    the chance to master the basics of drumming. Form and
-                    technique are essential when first leaning stick work. Rudi
-                    lays out a path for students to hear, see, and read the
-                    rudiments they are cultivating their rudiment skills.
+                    some cool text here
                   </Typography>
                 </CardContent>
               </Card>
@@ -130,7 +129,7 @@ export default function App() {
               variant="h5"
               sx={{ fontSize: "62px", fontWeight: "bold", color: "#2B2C42" }}
             >
-              Who It's For
+              Our Partners
             </Typography>
           </CardContent>
           <Grid container rowSpacing={1}>
@@ -154,7 +153,7 @@ export default function App() {
                     display: "flex",
                     marginTop: "10px",
                   }}
-                  image="Logos/bass-clef.png"
+                  image=""
                   alt="music note"
                 />
                 <CardContent>
@@ -170,17 +169,10 @@ export default function App() {
                         color: "#2B2C42",
                       }}
                     >
-                      Students
+                      Company 1
                     </Typography>
                   </Link>
-                  <Typography>
-                    Rudi provides students a fun and engaging way to enhance
-                    their basic drumming necessities. Progression-based
-                    learning, mastery rewards, and bonus content make for a
-                    productive training program. The excitement of completion
-                    rewards and bonus content enhance interest in learning the
-                    skills of rudiments.
-                  </Typography>
+                  <Typography>description of company 1</Typography>
                 </CardContent>
               </Card>
             </Grid>
@@ -219,17 +211,10 @@ export default function App() {
                         color: "#2B2C42",
                       }}
                     >
-                      Private Teachers
+                      Company 2
                     </Typography>
                   </Link>
-                  <Typography>
-                    Rudi was created out of a need for instructors to find a fun
-                    and engaging way to teach their students rudiments. By using
-                    this tool, private lesson teachers have a fun progression
-                    based learning tool at their fingertips. It’s an excellent
-                    way to track your student’s progress and grasp on the
-                    concepts.
-                  </Typography>
+                  <Typography>description of Company 2</Typography>
                 </CardContent>
               </Card>
             </Grid>
@@ -268,17 +253,10 @@ export default function App() {
                         color: "#2B2C42",
                       }}
                     >
-                      School Teachers
+                      Company 3
                     </Typography>
                   </Link>
-                  <Typography>
-                    Rudi is also there for school teachers and band directors
-                    who need a reliable source to help their percussion students
-                    learn drumming essentials. This enables educators without a
-                    primary percussion background to more efficiently teach
-                    content that would normally be difficult concepts for
-                    students to grasp.
-                  </Typography>
+                  <Typography>description for company 3</Typography>
                 </CardContent>
               </Card>
             </Grid>
@@ -305,8 +283,8 @@ export default function App() {
                 padding: "20px",
               }}
             >
-              <img src="/Logos/equalizer.png" alt="equalizer" />
-              Progression-based learning
+              <img src="/Logos/equalizer.png" alt="" />
+              Pick your favorite businesses and/or nonprofits
             </Item>
             <Item
               sx={{
@@ -316,8 +294,8 @@ export default function App() {
                 padding: "20px",
               }}
             >
-              <img src="/Logos/medal.png" alt="medal" />
-              Reward program
+              <img src="/Logos/medal.png" alt="" />
+              Add them to your list
             </Item>
             <Item
               sx={{
@@ -327,8 +305,8 @@ export default function App() {
                 padding: "20px",
               }}
             >
-              <img src="/Logos/rock.png" alt="rock" />
-              Bonus levels to further skillsets
+              <img src="/Logos/rock.png" alt="" />
+              Set your monthly amount and we'll take care of the rest!
             </Item>
           </Stack>
         </Container>
