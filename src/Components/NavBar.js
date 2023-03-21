@@ -94,7 +94,7 @@ const Navbar = (props) => {
                 variant="contained"
                 sx={{ backgroundColor: "#AA5656", borderRadius: "40px" }}
               >
-                <Link to="/register" className="link">
+                <Link to="/users" className="link">
                   Register
                 </Link>
               </Button>

@@ -7,39 +7,58 @@ import FormLabel from "@mui/material/FormLabel";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import setCode from "react";
 // import ClassCodeEntry from "./ClassCodeEntry";
 
-const Register = () => {
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
+// export function Register (props){
+//   console.log (props);
+  
+//   return(
+//     <div>
+//       {props['products'].map(product => {
+//         <div key={product.id}>
+//           <p> I am {product.name}</p>
+//           </div>
+//       })}
+//     </div>
+//   )
+// }
+
+
+const Register = () => { 
+  
+
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   // const [userType, setUserType] = useState("");
   // const [code, setCode] = useState("");
+  // const handleCode = (code) => {setCode(code);};
 
-  //   const handleCode = (code) => {
-  //     setCode(code);
-  //   };
-
-  //   function createUser(e) {
-  //     e.preventDefault();
-  //     fetch("http://localhost:3001/createuser", {
-  //       method: "POST",
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         username: username,
-  //         password: password,
-  //         role: userType,
-  //         code: code,
-  //       }),
-  //     })
-  //       .then((res) => res.text(), console.log("in response"))
-  //       .then((data) => console.log(data))
-  //       .catch((err) => console.log(err));
-  //   }
+    // function createUser(e) {
+    //   e.preventDefault();
+    //   fetch("http://localhost:3000/users", {
+    //     method: "POST",
+    //     headers: {
+    //       Accept: "application/json",
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       username: username,
+    //       password: password,
+    //       // role: userType,
+    //       // code: code,
+    //     }),
+    //   })
+    //     .then((res) => res.text(), console.log("in response"))
+    //     .then((data) => console.log(data))
+    //     .catch((err) => console.log(err));
+    // }
   return (
     <>
+    
       <div className="login">
         <Box
           component="form"
@@ -53,11 +72,20 @@ const Register = () => {
           }}
         >
           <TextField
+            id="outlined-name"
+            label="Name"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+          <br />
+
+          <TextField
             id="outlined-email"
             label="Email"
-            // onChange={(e) => {
-            //   setUsername(e.target.value);
-            // }}
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
           />
           <br />
 
@@ -66,13 +94,13 @@ const Register = () => {
             label="Password"
             type="password"
             autoComplete="current-password"
-            // onChange={(e) => {
-            //   setPassword(e.target.value);
-            // }}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           />
           <br />
 
-          <FormControl>
+          {/* <FormControl>
             <FormLabel
               id="user-type-radio-label"
               sx={{
@@ -118,11 +146,11 @@ const Register = () => {
                 label="Teacher"
               />
             </RadioGroup>
-          </FormControl>
+          </FormControl> */}
           <br />
 
           {/* <ClassCodeEntry
-          user={userType}
+          // user={userType}
           handleCode={handleCode}
           onChange={(e) => {
             setCode(e.target.value);
@@ -133,9 +161,7 @@ const Register = () => {
           <Button
             variant="contained"
             sx={{ backgroundColor: "#E13C45", borderRadius: "52px" }}
-            // onClick={createUser}
           >
-            Register
           </Button>
         </Box>
       </div>
