@@ -10,11 +10,12 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import CardActionArea from "@mui/material/CardActionArea";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
-// import Image from "mui-image";
+import Image from "mui-image";
+import HandsPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/annie-spratt-TBHOuN6URGU-unsplash (1).jpg";
+import WaterPumpPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/pexels-hamza-awan-14325722.jpg";
 
 const theme = createTheme();
 
@@ -44,12 +45,16 @@ export default function App() {
           alt="person with changes in hands"
           src="public/photos/hands-with-change.jpg"
         /> */}
-        {/* <Box>
-          <Image
-            src="/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/public/photos/hands-with-change.jpg"
-            alt="hands"
-          />
-        </Box> */}
+        <Box
+          sx={{
+            width: "75%",
+            display: "flex",
+            justifyContent: "center",
+            paddingTop: "10px",
+          }}
+        >
+          <Image src={HandsPic} alt="hands" />
+        </Box>
 
         <Box
           sx={{
@@ -101,31 +106,29 @@ export default function App() {
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
           <Grid item xs={12} md={6} sx={{ pb: 10 }}>
-            <CardActionArea component="a">
-              <Card sx={{ display: "flex" }}>
-                <CardMedia
-                  component="img"
-                  sx={{ width: "50%", display: { xs: "none", sm: "block" } }}
-                  src="/Photo Assets/a-boy-enjoys-music-playing-the-drum-set-2021-09-24-04-29-01-utc.jpg"
-                />
-                <CardContent sx={{ flex: 1 }}>
-                  <Typography
-                    component="h2"
-                    variant="h5"
-                    sx={{
-                      fontSize: "62px",
-                      fontWeight: "bold",
-                      color: "#2B2C42",
-                    }}
-                  >
-                    What Is Ripple?
-                  </Typography>
-                  <Typography variant="subtitle1" paragraph>
-                    some cool text here
-                  </Typography>
-                </CardContent>
-              </Card>
-            </CardActionArea>
+            <Card sx={{ display: "flex" }}>
+              <CardMedia
+                component="img"
+                sx={{ width: "30%", display: { xs: "none", sm: "block" } }}
+                src={WaterPumpPic}
+              />
+              <CardContent sx={{ flex: 1 }}>
+                <Typography
+                  component="h2"
+                  variant="h5"
+                  sx={{
+                    fontSize: "62px",
+                    fontWeight: "bold",
+                    color: "#2B2C42",
+                  }}
+                >
+                  What Is Ripple?
+                </Typography>
+                <Typography variant="subtitle1" paragraph>
+                  some cool text here
+                </Typography>
+              </CardContent>
+            </Card>
           </Grid>
           {/* End what is Rudi */}
           {/* Start who Rudi is for */}
@@ -140,6 +143,13 @@ export default function App() {
               Our Partners
             </Typography>
           </CardContent>
+          {/* Here are the name in the DB Catagory.create(name: "Animal")
+                Catagory.create(name: "Health")
+                Catagory.create(name: "Enviornment")
+                Catagory.create(name: "Hunger")
+                Catagory.create(name: "Emergency Response")
+                Catagory.create(name: "Education") */}
+
           <Grid container rowSpacing={1}>
             <Grid xs={4} sx={{ padding: "10px" }}>
               <Card
