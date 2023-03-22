@@ -5,6 +5,8 @@ import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
+import Logo from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/ripple-logo1.png";
+import Image from "mui-image";
 // import MenuIcon from "@mui/icons-material/Menu";
 
 const drawerWidth = 240;
@@ -41,7 +43,7 @@ const NavBar = (props) => {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{}}>
+    <Box>
       <AppBar
         component="nav"
         position="static"
@@ -56,7 +58,7 @@ const NavBar = (props) => {
           sx={{
             display: "flex",
             backgroundColor: "#698269",
-            justifyContent: "space-between",
+            justifyContent: "center",
           }}
         >
           <IconButton
@@ -66,16 +68,23 @@ const NavBar = (props) => {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: "none" } }}
           >
-            {/* <MenuIcon /> */}
+            <Image src={Logo} alt="ripple logo" />
           </IconButton>
-          {/* Feel free to put a Ripple Logo here */}
           <Box sx={{ display: "flex" }}></Box>
           <Box
             sx={{
               display: { xs: "none", sm: "block" },
             }}
           >
-            <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-evenly",
+                alignItems: "center",
+              }}
+            >
+              <Image src={Logo} alt="ripple logo" />
+
               <Typography sx={{ padding: "10px", fontWeight: "bold" }}>
                 <Link to="/" className="link">
                   Home
