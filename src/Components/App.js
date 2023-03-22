@@ -57,6 +57,7 @@ export default function App() {
             alt="hands"
             display="flex"
             justifyContent="center"
+            showLoading={true}
           />
         </Box>
 
