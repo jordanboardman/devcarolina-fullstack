@@ -47,13 +47,17 @@ export default function App() {
         /> */}
         <Box
           sx={{
-            width: "75%",
             display: "flex",
             justifyContent: "center",
             paddingTop: "10px",
           }}
         >
-          <Image src={HandsPic} alt="hands" />
+          <Image
+            src={HandsPic}
+            alt="hands"
+            display="flex"
+            justifyContent="center"
+          />
         </Box>
 
         <Box
@@ -109,7 +113,7 @@ export default function App() {
             <Card sx={{ display: "flex" }}>
               <CardMedia
                 component="img"
-                sx={{ width: "30%", display: { xs: "none", sm: "block" } }}
+                sx={{ width: "19%", display: { xs: "none", sm: "block" } }}
                 src={WaterPumpPic}
               />
               <CardContent sx={{ flex: 1 }}>
@@ -125,7 +129,12 @@ export default function App() {
                   What Is Ripple?
                 </Typography>
                 <Typography variant="subtitle1" paragraph>
-                  some cool text here
+                  Ripple is an opportunity for everyday people to donate what
+                  they can to select businesses and nonprofits that are out in
+                  the world doing great work. Funding is always a major issue
+                  for folks who are out in the front lines trying to make a
+                  difference. Give what you can every month and let the pros
+                  handle the rest!
                 </Typography>
               </CardContent>
             </Card>
@@ -187,7 +196,136 @@ export default function App() {
                         color: "#2B2C42",
                       }}
                     >
-                      Company 1
+                      Health
+                    </Typography>
+                  </Link>
+                  <Typography>description of company 1</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid xs={4} sx={{ padding: "10px" }}>
+              <Card
+                sx={{
+                  backgroundColor: "#8D99AE22",
+                  color: "#2B2C42",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  flexDirection: "row",
+                  borderRadius: "20px",
+                  justifyContent: "center",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  sx={{
+                    height: "90px",
+                    width: "90px",
+                    display: "flex",
+                    marginTop: "10px",
+                  }}
+                  image=""
+                  alt="music note"
+                />
+                <CardContent>
+                  <Link to="/students" underline="none" className="link">
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="h2"
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        paddingRight: "10px",
+                        color: "#2B2C42",
+                      }}
+                    >
+                      Enviornment
+                    </Typography>
+                  </Link>
+                  <Typography>description of company 1</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid xs={4} sx={{ padding: "10px" }}>
+              <Card
+                sx={{
+                  backgroundColor: "#8D99AE22",
+                  color: "#2B2C42",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  flexDirection: "row",
+                  borderRadius: "20px",
+                  justifyContent: "center",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  sx={{
+                    height: "90px",
+                    width: "90px",
+                    display: "flex",
+                    marginTop: "10px",
+                  }}
+                  image=""
+                  alt="music note"
+                />
+                <CardContent>
+                  <Link to="/students" underline="none" className="link">
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="h2"
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        paddingRight: "10px",
+                        color: "#2B2C42",
+                      }}
+                    >
+                      World Hunger
+                    </Typography>
+                  </Link>
+                  <Typography>description of company 1</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid xs={4} sx={{ padding: "10px" }}>
+              <Card
+                sx={{
+                  backgroundColor: "#8D99AE22",
+                  color: "#2B2C42",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  flexDirection: "row",
+                  borderRadius: "20px",
+                  justifyContent: "center",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  sx={{
+                    height: "90px",
+                    width: "90px",
+                    display: "flex",
+                    marginTop: "10px",
+                  }}
+                  image=""
+                  alt="music note"
+                />
+                <CardContent>
+                  <Link to="/students" underline="none" className="link">
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="h2"
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        paddingRight: "10px",
+                        color: "#2B2C42",
+                      }}
+                    >
+                      Emergency Response
                     </Typography>
                   </Link>
                   <Typography>description of company 1</Typography>
@@ -229,7 +367,7 @@ export default function App() {
                         color: "#2B2C42",
                       }}
                     >
-                      Company 2
+                      Education
                     </Typography>
                   </Link>
                   <Typography>description of Company 2</Typography>
@@ -271,7 +409,7 @@ export default function App() {
                         color: "#2B2C42",
                       }}
                     >
-                      Company 3
+                      Wildlife
                     </Typography>
                   </Link>
                   <Typography>description for company 3</Typography>
