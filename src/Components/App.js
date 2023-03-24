@@ -49,7 +49,7 @@ export default function App() {
           sx={{
             display: "flex",
             justifyContent: "center",
-            paddingTop: "10px",
+            margin: "10px",
           }}
         >
           <Image
