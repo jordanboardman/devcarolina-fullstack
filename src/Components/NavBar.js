@@ -103,8 +103,8 @@ const NavBar = (props) => {
                 variant="contained"
                 sx={{ backgroundColor: "#AA5656", borderRadius: "40px" }}
               >
-                <Link to="/users" className="link">
-                  Register
+                <Link to="/signup" className="link">
+                  SignUp
                 </Link>
               </Button>
             </Box>
