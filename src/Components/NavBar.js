@@ -9,7 +9,7 @@ import List from "@mui/material/List";
 
 const drawerWidth = 240;
 
-const Navbar = (props) => {
+const NavBar = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -127,4 +127,4 @@ const Navbar = (props) => {
   );
 };
 
-export default Navbar;
+export default NavBar;
