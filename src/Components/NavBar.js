@@ -83,28 +83,30 @@ const NavBar = (props) => {
                 alignItems: "center",
               }}
             >
-              <Image src={Logo} alt="ripple logo" />
-
-              <Typography sx={{ padding: "10px", fontWeight: "bold" }}>
-                <Link to="/" className="link">
-                  Home
-                </Link>
-              </Typography>
-
               <Button
                 variant="contained"
-                sx={{ backgroundColor: "#AA5656", borderRadius: "40px" }}
+                sx={{
+                  backgroundColor: "#AA5656",
+                  borderRadius: "15px",
+                  margin: "10px",
+                }}
               >
-                <Link to="/login" className="link">
-                  Login
+                <Link to="/" className="link">
+                  <Image src={Logo} alt="ripple logo" />
                 </Link>
               </Button>
               <Button
                 variant="contained"
-                sx={{ backgroundColor: "#AA5656", borderRadius: "40px" }}
+                sx={{
+                  backgroundColor: "#AA5656",
+                  borderRadius: "15px",
+                  margin: "10px",
+                }}
               >
-                <Link to="/users" className="link">
-                  Register
+
+                <Link to="/feature1" className="link">
+                  User Profile
+
                 </Link>
               </Button>
             </Box>
