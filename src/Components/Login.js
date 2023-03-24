@@ -1,89 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, setError } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    try {
-      console.log("in the try");
-      fetch("http://localhost:3001/checkpassword", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: username,
-          password: password,
-        }),
-      })
-        .then((res) => {
-          return res.json();
-        })
-        .then((status) => {
-          console.log(status);
-          console.log("in status");
-          if (status === "200") {
-            navigate("/");
-          } else if (status === "404") {
-            navigate("/login");
-          }
-        });
-    } catch (error) {
-      console.log("in the catch");
-      navigate("/login");
-    }
-  };
-  return (
-    <>
-      <div className="login">
-        <Box
-          component="form"
-          autoComplete="off"
-          sx={{
-            width: 300,
-            height: 200,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-around",
-          }}
-        >
-          <TextField
-            id="outlined-email"
-            label="Email"
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
-          />
+export function Login () {
+const [errors, setErrors] = useState([]);
 
-          <TextField
-            id="outlined-password-input"
-            label="Password"
-            type="password"
-            autoComplete="current-password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-
-          <Button
-            variant="contained"
-            sx={{ backgroundColor: "#E13C45", borderRadius: "52px" }}
-            onClick={handleLogin}
-          >
-            Log-In
-          </Button>
-        </Box>
-      </div>
-    </>
-  );
+const handleSumbit = (event) => {
+  event.preventDefault();
+  setErrors([]);
+  const params = new FormData(event.target);
+  axios
+  .post("http://localhost:3000/sessions.json", params)
+  .then((response)=> {
+    console.log(response.data);
+    axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
+    localStorage.setItem("jwt", response.data.jwt);
+    event.target.reset();
+    window.location.href = "/" //change this to hide a model, redirect to a specific page etc.
+  })
+  .catch ((error)=>{
+    console.log(error.reponse)
+    setError(["Invalid Email or Password"]);
+  });
 };
+
+return (
+  <div id="login">
+    <h1> Login</h1>
+    <ul>
+      {errors.map((error)=> (
+        <li key={error}> {error}</li>
+      ))}
+      </ul>
+      <form onSubmit={handleSumbit}>
+        <div>
+          Email: <input name="email" type="email"/>
+        </div>
+        <div>
+          Password: <input name="password" type="password"/>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+  </div>
+  );
+}
+
+
 
 export default Login;
