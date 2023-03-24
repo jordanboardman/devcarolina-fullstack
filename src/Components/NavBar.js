@@ -5,7 +5,7 @@ import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
-import Logo from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/ripple-logo1.png";
+import Logo from "../photos/ripple-logo1.png";
 import Image from "mui-image";
 // import MenuIcon from "@mui/icons-material/Menu";
 
