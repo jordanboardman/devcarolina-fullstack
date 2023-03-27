@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./Components/App";
+import App from "./components/App";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import BaseLayout from "./Components/layout/BaseLayout.js";
-import Login from "./Components/Login.js";
-import Register from "./Components/Register.js";
-import SignUp from "./Components/SignUp";
-import Error from "./Components/Error";
-import Feature1 from "./Components/Feature1";
-import About from "./Components/About";
+import BaseLayout from "./components/layout/BaseLayout.js";
+import Login from "./components/Login.js";
+import Register from "./components/Register.js";
+import SignUp from "./components/SignUp";
+import Error from "./components/Error";
+import Feature1 from "./components/Feature1";
+import About from "./components/About";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -17,7 +17,7 @@ root.render(
     <Router>
       <BaseLayout>
         <Routes>
-          <Route path="/SignUp" element={<SignUp/>} />
+          <Route path="/SignUp" element={<SignUp />} />
           <Route path="/" element={<App />} />
           <Route path="/login" element={<Login />} />
           <Route path="/users" element={<Register />} />
