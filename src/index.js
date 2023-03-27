@@ -9,6 +9,7 @@ import SignUp from "./components/SignUp";
 import Error from "./components/Error";
 import Feature1 from "./components/Feature1";
 import About from "./components/About";
+import LogoutLink from "./components/LogoutLink";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -18,6 +19,7 @@ root.render(
       <BaseLayout>
         <Routes>
           <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/logout" element={<LogoutLink />} />
           <Route path="/" element={<App />} />
           <Route path="/login" element={<Login />} />
           <Route path="/users" element={<Register />} />
