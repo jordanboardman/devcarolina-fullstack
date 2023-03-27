@@ -5,7 +5,6 @@ import {
   Box,
   Typography,
   Paper,
-  Grid,
   TextField,
   Button,
   Stack,
@@ -54,6 +53,7 @@ export function SignUp() {
             display: "flex",
             justifyContent: "center",
             marginTop: "10px",
+            backgroundColor: "#F1DBBF",
           }}
         >
           {/* Signup */}
@@ -81,9 +81,15 @@ export function SignUp() {
               variant="filled"
             />
             <br />
-            <Button type="submit" variant="contained">
-              Sign Up
-            </Button>
+            <Box display="flex" justifyContent="center">
+              <Button
+                type="submit"
+                variant="contained"
+                sx={{ borderRadius: "20px", width: "100px" }}
+              >
+                Sign Up
+              </Button>
+            </Box>
           </Stack>
         </Paper>
       </Box>
