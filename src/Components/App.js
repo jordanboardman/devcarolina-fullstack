@@ -14,8 +14,8 @@ import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import Image from "mui-image";
-import HandsPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/annie-spratt-TBHOuN6URGU-unsplash (1).jpg";
-import WaterPumpPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/pexels-hamza-awan-14325722.jpg";
+import HandsPic from "../photos/annie-spratt-TBHOuN6URGU-unsplash (1).jpg";
+import WaterPumpPic from "../photos/pexels-hamza-awan-14325722.jpg";
 
 const theme = createTheme();
 
