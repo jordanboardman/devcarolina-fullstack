@@ -18,3 +18,5 @@ window.location.href = "/";
  )
 }
 
+export default LogoutLink;
+
