@@ -56,17 +56,12 @@ export function SignUp() {
             backgroundColor: "#F1DBBF",
           }}
         >
-          {/* Signup */}
-          {/* This shows the errors to user:  */}
-          {errors.map((error) => (
-            <Box> {error} </Box>
-          ))}
-          <Stack
+          <form
             onSubmit={handleSubmit}
             margin="20px"
             direction="column"
             spacing={1}
-          >
+            >
             <Typography variant="h3">Make a Difference</Typography>
 
             <TextField id="filled-basic" label="Name" variant="filled" />
@@ -79,18 +74,23 @@ export function SignUp() {
               id="filled-basic"
               label="Confirm Password"
               variant="filled"
-            />
+              />
             <br />
             <Box display="flex" justifyContent="center">
               <Button
                 type="submit"
                 variant="contained"
                 sx={{ borderRadius: "20px", width: "100px" }}
-              >
+                >
                 Sign Up
               </Button>
+                {/* Signup */}
+                {/* This shows the errors to user:  */}
+                {errors.map((error) => (
+                  <Box> {error} </Box>
+                ))}
             </Box>
-          </Stack>
+          </form>
         </Paper>
       </Box>
     </>
