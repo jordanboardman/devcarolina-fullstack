@@ -1,6 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { Paper, Box, Typography, Avatar } from "@mui/material";
+import {
+  Paper,
+  Box,
+  Typography,
+  Avatar,
+  Card,
+  CardContent,
+} from "@mui/material";
 import axios from "axios";
 
 function Feature1() {
@@ -9,9 +16,6 @@ function Feature1() {
     isLoading: true,
     errors: null,
   });
-
-
-
 
   React.useEffect(() => {
     axios
@@ -22,8 +26,7 @@ function Feature1() {
           username: `${user.login.username}`,
           email: `${user.email}`,
           image: `${user.picture.large}`,
-        })
-        )
+        }))
       )
       .then((users) => {
         setPost({
@@ -53,30 +56,55 @@ function Feature1() {
         }}
       >
         <Paper elevation={3}>
-
-{/* <button onClick={handleUserData}>GetUserData</button> */}
+          {/* <button onClick={handleUserData}>GetUserData</button> */}
 
           {!post.isLoading ? (
             post.users.map((user) => {
               const { username, name, email, image } = user;
               return (
-                <Box key={username}>
-                  <Box sx={{ display: "flex", justifyContent: "center" }}>
-                    <Typography>{name}</Typography>
+                <Box
+                  key={username}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                  marginTop={5}
+                >
+                  <Box
+                    sx={{
+                      backgroundColor: "#AA5656",
+                      borderRadius: "20px",
+                      padding: "10px",
+                    }}
+                  >
+                    <Typography color="white" variant="h3">
+                      {name}
+                    </Typography>
                   </Box>
 
-                  <Box sx={{ display: "flex", justifyContent: "center" }}>
+                  <Box marginTop={5}>
                     <Avatar
                       sx={{
-                        width: 150,
-                        height: 150,
+                        width: 175,
+                        height: 175,
                       }}
                       src={image}
                       alt={name}
                     />
                   </Box>
-                  <Box sx={{ display: "flex", justifyContent: "center" }}>
-                    <Typography>{username}</Typography>
+                  <Box marginTop={5}>
+                    <Card sx={{ minWidth: 275 }}>
+                      <CardContent>
+                        <Box>
+                          <Typography>Username: {username}</Typography>
+                        </Box>
+                        <Box>
+                          <Typography>Contact: {email}</Typography>
+                        </Box>
+                      </CardContent>
+                    </Card>
                   </Box>
                 </Box>
               );
