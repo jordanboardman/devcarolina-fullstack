@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { Paper, Box, Typography, Avatar } from "@mui/material";
 import axios from "axios";
 
@@ -9,6 +10,9 @@ function Feature1() {
     errors: null,
   });
 
+
+
+
   React.useEffect(() => {
     axios
       .get("https://randomuser.me/api/?results")
@@ -18,7 +22,8 @@ function Feature1() {
           username: `${user.login.username}`,
           email: `${user.email}`,
           image: `${user.picture.large}`,
-        }))
+        })
+        )
       )
       .then((users) => {
         setPost({
@@ -48,6 +53,9 @@ function Feature1() {
         }}
       >
         <Paper elevation={3}>
+
+{/* <button onClick={handleUserData}>GetUserData</button> */}
+
           {!post.isLoading ? (
             post.users.map((user) => {
               const { username, name, email, image } = user;
