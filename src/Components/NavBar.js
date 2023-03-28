@@ -104,7 +104,6 @@ const NavBar = (props) => {
                 }}
               >
 
-
                 <Link to="/feature1" className="link">
                   User Profile
 
