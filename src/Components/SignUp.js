@@ -40,8 +40,8 @@ export function SignUp() {
           justifyContent: "center",
           "& > :not(style)": {
             m: 1,
-            width: "50vw",
-            height: "50vh",
+            width: "35vw",
+            height: "35vh",
             position: "fixed",
             top: "25%",
           },
@@ -61,7 +61,7 @@ export function SignUp() {
             margin="20px"
             direction="column"
             spacing={1}
-            >
+          >
             <Typography variant="h3">Make a Difference</Typography>
 
             <TextField id="filled-basic" label="Name" variant="filled" />
@@ -74,21 +74,21 @@ export function SignUp() {
               id="filled-basic"
               label="Confirm Password"
               variant="filled"
-              />
+            />
             <br />
-            <Box display="flex" justifyContent="center">
+            <Box display="flex">
               <Button
                 type="submit"
                 variant="contained"
                 sx={{ borderRadius: "20px", width: "100px" }}
-                >
+              >
                 Sign Up
               </Button>
-                {/* Signup */}
-                {/* This shows the errors to user:  */}
-                {errors.map((error) => (
-                  <Box> {error} </Box>
-                ))}
+              {/* Signup */}
+              {/* This shows the errors to user:  */}
+              {errors.map((error) => (
+                <Box> {error} </Box>
+              ))}
             </Box>
           </form>
         </Paper>
