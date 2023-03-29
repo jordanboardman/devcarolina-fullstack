@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Paper,
   Box,
@@ -11,6 +11,22 @@ import {
 import axios from "axios";
 
 function Feature1() {
+  const [userData, setUserData] = useState([])
+  const handleUserShow = () => {
+    const user_id = window.localStorage.getItem(`user_id`)
+      console.log("user_id")
+      console.log(user_id)
+      // console.log("props")
+      // console.log(user)
+      axios.get(`http://localhost:3000/user/${user_id}.json`).then(response =>
+      {console.log(response.data.message);
+        console.log("Set User Data");
+        setUserData(response.data.message);
+      })
+  }
+  
+  useEffect(handleUserShow, [])
+
   const [post, setPost] = React.useState({
     users: [],
     isLoading: true,
@@ -80,7 +96,7 @@ function Feature1() {
                     }}
                   >
                     <Typography color="white" variant="h3">
-                      {name}
+                    {userData["name"]}
                     </Typography>
                   </Box>
 
@@ -90,18 +106,30 @@ function Feature1() {
                         width: 175,
                         height: 175,
                       }}
-                      src={image}
-                      alt={name}
+                      src={userData["profile_picture"]}
+                      alt={userData["name"]}
                     />
                   </Box>
                   <Box marginTop={5}>
                     <Card sx={{ minWidth: 275 }}>
                       <CardContent>
                         <Box>
-                          <Typography>Username: {username}</Typography>
+                          <Typography>Username: {userData["email"]}</Typography>
                         </Box>
                         <Box>
-                          <Typography>Contact: {email}</Typography>
+                          <Typography>bio: {userData["bio"]}</Typography>
+                        </Box>
+                        <Box>
+                          <Typography> passion: {userData["passion"]}</Typography>
+                        </Box>
+                        <Box>
+                          <Typography>location: {userData["location"]}</Typography>
+                        </Box>
+                        <Box>
+                          <Typography>monthly giving: {userData["monthly_donation_amount"]}</Typography>
+                        </Box>
+                        <Box>
+                          <Typography> my_links: {userData["links"]}</Typography>
                         </Box>
                       </CardContent>
                     </Card>
