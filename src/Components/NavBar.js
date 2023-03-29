@@ -103,10 +103,20 @@ const NavBar = (props) => {
                   margin: "10px",
                 }}
               >
-
                 <Link to="/feature1" className="link">
                   User Profile
-
+                </Link>
+              </Button>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#AA5656",
+                  borderRadius: "15px",
+                  margin: "10px",
+                }}
+              >
+                <Link to="/signup" className="link">
+                  Sign Up
                 </Link>
               </Button>
             </Box>
