@@ -114,7 +114,6 @@ function Feature1() {
           )}
         </Paper>
         <Paper elevation={3} />
-        <Paper elevation={3} />
       </Box>
     </React.Fragment>
   );

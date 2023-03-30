@@ -1,14 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import {
-  Box,
-  Typography,
-  Paper,
-  TextField,
-  Button,
-  Stack,
-} from "@mui/material";
+import { Box, Paper, Button } from "@mui/material";
 
 export function SignUp() {
   const [errors, setErrors] = useState([]);
@@ -62,25 +55,28 @@ export function SignUp() {
             direction="column"
             spacing={1}
           >
-            <Typography variant="h3">Make a Difference</Typography>
-
-            <TextField id="filled-basic" label="Name" variant="filled" />
+            <h3>Make a Difference</h3>
+            <label for="name">Name:</label>
             <br />
-            <TextField id="filled-basic" label="Email" variant="filled" />
+            <input label="Name" />
             <br />
-            <TextField id="filled-basic" label="Password" variant="filled" />
+            <label for="email">Email:</label>
+            <br></br>
+            <input label="Email" />
             <br />
-            <TextField
-              id="filled-basic"
-              label="Confirm Password"
-              variant="filled"
-            />
+            <label for="password">Password:</label>
+            <br></br>
+            <input label="Password" />
+            <br />
+            <label for="confirm">Confirm Password:</label>
+            <br></br>
+            <input label="Confirm Password" />
             <br />
             <Box display="flex">
               <Button
                 type="submit"
                 variant="contained"
-                sx={{ borderRadius: "20px", width: "100px" }}
+                sx={{ borderRadius: "20px", width: "100px", marginTop: "10px" }}
               >
                 Sign Up
               </Button>
