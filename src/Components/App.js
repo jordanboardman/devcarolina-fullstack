@@ -16,6 +16,12 @@ import { Link } from "react-router-dom";
 import Image from "mui-image";
 import HandsPic from "../photos/annie-spratt-TBHOuN6URGU-unsplash (1).jpg";
 import WaterPumpPic from "../photos/pexels-hamza-awan-14325722.jpg";
+import HealthPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/online-marketing-hIgeoQjS_iE-unsplash.jpg";
+import EnviornmentPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/thomas-richter-B09tL5bSQJk-unsplash.jpg";
+import WorldHungerPick from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/muhammad-muzamil-7S9x9US26Ow-unsplash.jpg";
+import EmergResPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/mat-napo-ejWJ3a92FEs-unsplash.jpg";
+import EducationPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/kenny-eliason-zFSo6bnZJTw-unsplash.jpg";
+import WildlifePic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/sid-balachandran-_9a-3NO5KJE-unsplash.jpg";
 
 const theme = createTheme();
 
@@ -150,7 +156,7 @@ export default function App() {
               variant="h5"
               sx={{ fontSize: "62px", fontWeight: "bold", color: "#2B2C42" }}
             >
-              Our Partners
+              Our Impact
             </Typography>
           </CardContent>
           {/* Here are the name in the DB Catagory.create(name: "Animal")
@@ -176,14 +182,15 @@ export default function App() {
                 <CardMedia
                   component="img"
                   sx={{
-                    height: "90px",
-                    width: "90px",
+                    height: "200px",
+                    width: "300px",
                     display: "flex",
-                    marginTop: "10px",
+                    margin: "10px",
+                    borderRadius: "20px",
                   }}
-                  image=""
-                  alt="music note"
-                />
+                  src={HealthPic}
+                  alt="healthpic"
+                ></CardMedia>
                 <CardContent>
                   <Link to="/students" underline="none" className="link">
                     <Typography
@@ -200,7 +207,7 @@ export default function App() {
                       Health
                     </Typography>
                   </Link>
-                  <Typography>description of company 1</Typography>
+                  {/* <Typography>description of company 1</Typography> */}
                 </CardContent>
               </Card>
             </Grid>
@@ -219,13 +226,14 @@ export default function App() {
                 <CardMedia
                   component="img"
                   sx={{
-                    height: "90px",
-                    width: "90px",
+                    height: "200px",
+                    width: "300px",
                     display: "flex",
-                    marginTop: "10px",
+                    margin: "10px",
+                    borderRadius: "20px",
                   }}
-                  image=""
-                  alt="music note"
+                  src={EnviornmentPic}
+                  alt="environment pic"
                 />
                 <CardContent>
                   <Link to="/students" underline="none" className="link">
@@ -243,7 +251,7 @@ export default function App() {
                       Enviornment
                     </Typography>
                   </Link>
-                  <Typography>description of company 1</Typography>
+                  {/* <Typography>description of company 1</Typography> */}
                 </CardContent>
               </Card>
             </Grid>
@@ -262,13 +270,14 @@ export default function App() {
                 <CardMedia
                   component="img"
                   sx={{
-                    height: "90px",
-                    width: "90px",
+                    height: "200px",
+                    width: "300px",
                     display: "flex",
-                    marginTop: "10px",
+                    margin: "10px",
+                    borderRadius: "20px",
                   }}
-                  image=""
-                  alt="music note"
+                  src={WorldHungerPick}
+                  alt="world hunger pic"
                 />
                 <CardContent>
                   <Link to="/students" underline="none" className="link">
@@ -286,7 +295,7 @@ export default function App() {
                       World Hunger
                     </Typography>
                   </Link>
-                  <Typography>description of company 1</Typography>
+                  {/* <Typography>description of company 1</Typography> */}
                 </CardContent>
               </Card>
             </Grid>
@@ -305,13 +314,14 @@ export default function App() {
                 <CardMedia
                   component="img"
                   sx={{
-                    height: "90px",
-                    width: "90px",
+                    height: "200px",
+                    width: "300px",
                     display: "flex",
-                    marginTop: "10px",
+                    margin: "10px",
+                    borderRadius: "20px",
                   }}
-                  image=""
-                  alt="music note"
+                  src={EmergResPic}
+                  alt="emergency response picture"
                 />
                 <CardContent>
                   <Link to="/students" underline="none" className="link">
@@ -329,7 +339,7 @@ export default function App() {
                       Emergency Response
                     </Typography>
                   </Link>
-                  <Typography>description of company 1</Typography>
+                  {/* <Typography>description of company 1</Typography> */}
                 </CardContent>
               </Card>
             </Grid>
@@ -348,13 +358,14 @@ export default function App() {
                 <CardMedia
                   component="img"
                   sx={{
-                    height: "90px",
-                    width: "90px",
+                    height: "200px",
+                    width: "300px",
                     display: "flex",
-                    marginTop: "10px",
+                    margin: "10px",
+                    borderRadius: "20px",
                   }}
-                  image="Logos/drumsticks.png"
-                  alt="music note"
+                  src={EducationPic}
+                  alt="education pic"
                 />
                 <CardContent>
                   <Link to="/teachers" underline="none" className="link">
@@ -371,7 +382,7 @@ export default function App() {
                       Education
                     </Typography>
                   </Link>
-                  <Typography>description of Company 2</Typography>
+                  {/* <Typography>description of Company 2</Typography> */}
                 </CardContent>
               </Card>
             </Grid>
@@ -390,13 +401,14 @@ export default function App() {
                 <CardMedia
                   component="img"
                   sx={{
-                    height: "90px",
-                    width: "90px",
+                    height: "200px",
+                    width: "300px",
                     display: "flex",
-                    marginTop: "10px",
+                    margin: "10px",
+                    borderRadius: "20px",
                   }}
-                  image="Logos/stave.png"
-                  alt="music note"
+                  src={WildlifePic}
+                  alt="wildlife pic"
                 />
                 <CardContent>
                   <Link to="/teachers" underline="none" className="link">
@@ -413,7 +425,7 @@ export default function App() {
                       Wildlife
                     </Typography>
                   </Link>
-                  <Typography>description for company 3</Typography>
+                  {/* <Typography>description for company 3</Typography> */}
                 </CardContent>
               </Card>
             </Grid>
