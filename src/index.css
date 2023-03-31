@@ -27,3 +27,18 @@ body {
   margin-top: -50px;
   margin-left: -100px;
 }
+
+#logout {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+  background-color: #aa5656;
+}
+
+a {
+  color: white;
+}
