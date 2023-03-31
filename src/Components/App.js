@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import Image from "mui-image";
 import HandsPic from "../photos/annie-spratt-TBHOuN6URGU-unsplash (1).jpg";
 import WaterPumpPic from "../photos/pexels-hamza-awan-14325722.jpg";
-import HealthPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/online-marketing-hIgeoQjS_iE-unsplash.jpg";
+import HealthPic from "../photos/online-marketing-hIgeoQjS_iE-unsplash.jpg";
 import EnviornmentPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/thomas-richter-B09tL5bSQJk-unsplash.jpg";
 import WorldHungerPick from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/muhammad-muzamil-7S9x9US26Ow-unsplash.jpg";
 import EmergResPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/mat-napo-ejWJ3a92FEs-unsplash.jpg";
