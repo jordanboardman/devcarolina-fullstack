@@ -23,7 +23,7 @@ const handleSumbit = (event) => {
     const user_id = window.localStorage.getItem(`user_id`)
     event.target.reset();
     event.preventDefault();
-    window.location.href = "/user" //change this to hide a model, redirect to a specific page etc.
+    window.location.href = "/feature1" //change this to hide a model, redirect to a specific page etc.
   })
   .catch ((error)=>{
     console.log(error.reponse)

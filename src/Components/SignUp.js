@@ -18,8 +18,10 @@ export function SignUp() {
     event.preventDefault();
     console.log(event.target);
     const params = new FormData(event.target);
+    console.log(params)
+    console.log(params)
     axios
-      .post("http://localhost:3000/users.json", params)
+      .post("http://localhost:3000/user.json", params)
       .then((response) => {
         console.log(response.data);
         // clears form
