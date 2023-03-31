@@ -12,13 +12,15 @@ export function SignUp() {
     console.log(event.target);
     const params = new FormData(event.target);
     console.log(params)
-    console.log(params)
     axios
       .post("http://localhost:3000/user.json", params)
       .then((response) => {
         console.log(response.data);
         // clears form
         event.target.reset();
+        event.preventDefault();
+        window.location.href = "/feature1" //change this to hide a model, redirect to a specific page etc.
+
       })
       .catch((error) => {
         console.log("consoling becasuse there is an error!");
@@ -58,21 +60,13 @@ export function SignUp() {
             spacing={1}
           >
             <h3>Make a Difference</h3>
-            <label for="name">Name:</label>
+            Name: <input name="name" type="name" />
             <br />
-            <input label="Name" />
+            Email: <input name="email" type="email" />
             <br />
-            <label for="email">Email:</label>
-            <br></br>
-            <input label="Email" />
+            Password: <input name="password" type="password"/>
             <br />
-            <label for="password">Password:</label>
-            <br></br>
-            <input label="Password" />
-            <br />
-            <label for="confirm">Confirm Password:</label>
-            <br></br>
-            <input label="Confirm Password" />
+            Confirm Password: <input name="password" type="password"/>
             <br />
             <Box display="flex">
               <Button

@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import EducationPic from "../photos/kenny-eliason-zFSo6bnZJTw-unsplash.jpg";
 import WildlifePic from "../photos/sid-balachandran-_9a-3NO5KJE-unsplash.jpg";
 import HealthPic from "../photos/online-marketing-hIgeoQjS_iE-unsplash.jpg";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Paper,
@@ -174,7 +173,7 @@ function Feature1() {
                     }}
                   >
                     <Typography color="white" variant="h3">
-                      {fname}'s Impact
+                    {userData["name"]}'s Impact
                     </Typography>
                   </Box>
                 </Box>
