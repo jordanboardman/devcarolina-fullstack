@@ -4,10 +4,12 @@ import React, { useState, setError } from "react";
 // import { Button } from "@mui/material";
 // import { useNavigate } from "react-router-dom";
 import UserShow from "./UserShow";
+import "../index.css";
 import axios from "axios";
 
-export function Login () {
-const [errors, setErrors] = useState([]);
+export function Login() {
+  const [errors, setErrors] = useState([]);
+
 
 const handleSumbit = (event) => {
   console.log("in handleSubmit");
@@ -43,10 +45,10 @@ return (
       </ul>
       <form onSubmit={handleSumbit}>
         <div>
-          Email: <input name="email" type="email"/>
+          Email: <input name="email" type="email" />
         </div>
         <div>
-          Password: <input name="password" type="password"/>
+          Password: <input name="password" type="password" />
         </div>
         <button type="submit">Login</button>
     </form>
