@@ -144,7 +144,7 @@ function Feature1() {
                       padding: "10px",
                     }}
                   >
-                    <Typography color="white" variant="h4">
+                    <Typography color="white" variant="h3">
                       {fname}'s Impact
                     </Typography>
                   </Box>
