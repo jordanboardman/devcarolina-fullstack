@@ -1,5 +1,9 @@
 import React from "react";
+import EducationPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/kenny-eliason-zFSo6bnZJTw-unsplash.jpg";
+import WildlifePic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/sid-balachandran-_9a-3NO5KJE-unsplash.jpg";
+import HealthPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/online-marketing-hIgeoQjS_iE-unsplash.jpg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Paper,
   Box,
@@ -7,6 +11,8 @@ import {
   Avatar,
   Card,
   CardContent,
+  Grid,
+  CardMedia,
 } from "@mui/material";
 import axios from "axios";
 
@@ -23,6 +29,7 @@ function Feature1() {
       .then((response) =>
         response.data.results.map((user) => ({
           name: `${user.name.first} ${user.name.last}`,
+          fname: `${user.name.first}`,
           username: `${user.login.username}`,
           email: `${user.email}`,
           image: `${user.picture.large}`,
@@ -49,7 +56,7 @@ function Feature1() {
           "& > :not(style)": {
             m: "8px",
             width: "32vw",
-            height: "80vh",
+            height: "50vh",
             marginTop: "58px",
             backgroundColor: "#B99B6B",
           },
@@ -113,7 +120,174 @@ function Feature1() {
             <p>Loading...</p>
           )}
         </Paper>
-        <Paper elevation={3} />
+        {/* Start of 2nd Paper for User Impact */}
+
+        <Paper elevation={3}>
+          {!post.isLoading ? (
+            post.users.map((user) => {
+              const { username, fname } = user;
+              return (
+                <Box
+                  key={username}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                  marginTop={5}
+                >
+                  <Box
+                    sx={{
+                      backgroundColor: "#AA5656",
+                      borderRadius: "20px",
+                      padding: "10px",
+                    }}
+                  >
+                    <Typography color="white" variant="h4">
+                      {fname}'s Impact
+                    </Typography>
+                  </Box>
+                </Box>
+              );
+            })
+          ) : (
+            <p>Loading...</p>
+          )}
+          <Grid container rowSpacing={1}>
+            <Grid xs={4} sx={{ padding: "10px" }}>
+              <Card
+                sx={{
+                  backgroundColor: "#8D99AE22",
+                  color: "#2B2C42",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  flexDirection: "row",
+                  borderRadius: "20px",
+                  justifyContent: "center",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  sx={{
+                    height: "200px",
+                    width: "250px",
+                    display: "flex",
+                    margin: "10px",
+                    borderRadius: "20px",
+                  }}
+                  src={HealthPic}
+                  alt="healthpic"
+                ></CardMedia>
+                <CardContent>
+                  <Link to="/students" underline="none" className="link">
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="h2"
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        paddingRight: "10px",
+                        color: "#2B2C42",
+                      }}
+                    >
+                      Health
+                    </Typography>
+                  </Link>
+                  {/* <Typography>description of company 1</Typography> */}
+                </CardContent>
+              </Card>
+            </Grid>
+
+            <Grid xs={4} sx={{ padding: "10px" }}>
+              <Card
+                sx={{
+                  backgroundColor: "#8D99AE22",
+                  color: "#2B2C42",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  flexDirection: "row",
+                  borderRadius: "20px",
+                  justifyContent: "center",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  sx={{
+                    height: "200px",
+                    width: "250px",
+                    display: "flex",
+                    margin: "10px",
+                    borderRadius: "20px",
+                  }}
+                  src={EducationPic}
+                  alt="education pic"
+                />
+                <CardContent>
+                  <Link to="/teachers" underline="none" className="link">
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="h2"
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        color: "#2B2C42",
+                      }}
+                    >
+                      Education
+                    </Typography>
+                  </Link>
+                  {/* <Typography>description of Company 2</Typography> */}
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid xs={4} sx={{ padding: "10px" }}>
+              <Card
+                sx={{
+                  backgroundColor: "#8D99AE22",
+                  color: "#2B2C42",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  flexDirection: "row",
+                  borderRadius: "20px",
+                  justifyContent: "center",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  sx={{
+                    height: "200px",
+                    width: "250px",
+                    display: "flex",
+                    margin: "10px",
+                    borderRadius: "20px",
+                  }}
+                  src={WildlifePic}
+                  alt="wildlife pic"
+                />
+                <CardContent>
+                  <Link to="/teachers" underline="none" className="link">
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="h2"
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        color: "#2B2C42",
+                      }}
+                    >
+                      Wildlife
+                    </Typography>
+                  </Link>
+                  {/* <Typography>description for company 3</Typography> */}
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+        </Paper>
       </Box>
     </React.Fragment>
   );

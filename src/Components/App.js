@@ -183,7 +183,7 @@ export default function App() {
                   component="img"
                   sx={{
                     height: "200px",
-                    width: "300px",
+                    width: "250px",
                     display: "flex",
                     margin: "10px",
                     borderRadius: "20px",
@@ -227,7 +227,7 @@ export default function App() {
                   component="img"
                   sx={{
                     height: "200px",
-                    width: "300px",
+                    width: "250px",
                     display: "flex",
                     margin: "10px",
                     borderRadius: "20px",
@@ -271,7 +271,7 @@ export default function App() {
                   component="img"
                   sx={{
                     height: "200px",
-                    width: "300px",
+                    width: "250px",
                     display: "flex",
                     margin: "10px",
                     borderRadius: "20px",
@@ -315,7 +315,7 @@ export default function App() {
                   component="img"
                   sx={{
                     height: "200px",
-                    width: "300px",
+                    width: "250px",
                     display: "flex",
                     margin: "10px",
                     borderRadius: "20px",
@@ -336,7 +336,7 @@ export default function App() {
                         color: "#2B2C42",
                       }}
                     >
-                      Emergency Response
+                      Emergency
                     </Typography>
                   </Link>
                   {/* <Typography>description of company 1</Typography> */}
@@ -359,7 +359,7 @@ export default function App() {
                   component="img"
                   sx={{
                     height: "200px",
-                    width: "300px",
+                    width: "250px",
                     display: "flex",
                     margin: "10px",
                     borderRadius: "20px",
@@ -402,7 +402,7 @@ export default function App() {
                   component="img"
                   sx={{
                     height: "200px",
-                    width: "300px",
+                    width: "250px",
                     display: "flex",
                     margin: "10px",
                     borderRadius: "20px",
