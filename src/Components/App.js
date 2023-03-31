@@ -17,11 +17,11 @@ import Image from "mui-image";
 import HandsPic from "../photos/annie-spratt-TBHOuN6URGU-unsplash (1).jpg";
 import WaterPumpPic from "../photos/pexels-hamza-awan-14325722.jpg";
 import HealthPic from "../photos/online-marketing-hIgeoQjS_iE-unsplash.jpg";
-import EnviornmentPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/thomas-richter-B09tL5bSQJk-unsplash.jpg";
-import WorldHungerPick from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/muhammad-muzamil-7S9x9US26Ow-unsplash.jpg";
-import EmergResPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/mat-napo-ejWJ3a92FEs-unsplash.jpg";
-import EducationPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/kenny-eliason-zFSo6bnZJTw-unsplash.jpg";
-import WildlifePic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/sid-balachandran-_9a-3NO5KJE-unsplash.jpg";
+import EnviornmentPic from "../photos/thomas-richter-B09tL5bSQJk-unsplash.jpg";
+import WorldHungerPick from "../photos/muhammad-muzamil-7S9x9US26Ow-unsplash.jpg";
+import EmergResPic from "../photos/mat-napo-ejWJ3a92FEs-unsplash.jpg";
+import EducationPic from "../photos/kenny-eliason-zFSo6bnZJTw-unsplash.jpg";
+import WildlifePic from "../photos/sid-balachandran-_9a-3NO5KJE-unsplash.jpg";
 
 const theme = createTheme();
 

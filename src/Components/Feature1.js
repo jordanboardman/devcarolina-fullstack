@@ -1,7 +1,7 @@
 import React from "react";
-import EducationPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/kenny-eliason-zFSo6bnZJTw-unsplash.jpg";
-import WildlifePic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/sid-balachandran-_9a-3NO5KJE-unsplash.jpg";
-import HealthPic from "/Users/jordanboardman/Desktop/Projects/devcarolina-fullstack/src/photos/online-marketing-hIgeoQjS_iE-unsplash.jpg";
+import EducationPic from "../photos/kenny-eliason-zFSo6bnZJTw-unsplash.jpg";
+import WildlifePic from "../photos/sid-balachandran-_9a-3NO5KJE-unsplash.jpg";
+import HealthPic from "../photos/online-marketing-hIgeoQjS_iE-unsplash.jpg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
