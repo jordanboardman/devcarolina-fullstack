@@ -1,31 +1,42 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-
-
-export function UserShow() {
+export function UserShow () {
   
   const [userData, setUserData] = useState([])
 
-  
-const handleUserShow = () => {
-  axios.get("http://localhost:3000/users/1.json").then(response =>
-  {console.log(response.data);
-    console.log("Set User Data");
-    setUserData(response.data);
-  })
-
-  
+  const handleUserShow = () => {
+  const user_id = window.localStorage.getItem(`user_id`)
+    console.log("user_id")
+    console.log(user_id)
+    // console.log("props")
+    // console.log(user)
+    axios.get(`http://localhost:3000/user/${user_id}.json`).then(response =>
+    {console.log(response.data.message);
+      console.log("Set User Data");
+      setUserData(response.data.message);
+    })
 }
 
 useEffect(handleUserShow, [])
 
 return(
   <div>
-  <button onClick={handleUserShow}>
-   User Data
-
-  </button>
+  Name: {userData["name"]}
+  <br/>
+ Email: {userData["email"]}
+  <br/>
+ bio: {userData["bio"]}
+  <br/>
+ passion: {userData["passion"]}
+  <br/>
+ profile_picture: {userData["profile_picture"]}
+  <br/>
+ location: {userData["location"]}
+  <br/>
+ my_links: {userData["links"]}
+  <br/>
+ monthly giving: {userData["monthly_donation_amount"]}
   </div>
  )
 
