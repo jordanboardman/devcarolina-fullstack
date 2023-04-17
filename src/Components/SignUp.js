@@ -19,7 +19,7 @@ export function SignUp() {
         // clears form
         event.target.reset();
         event.preventDefault();
-        window.location.href = "/feature1" //change this to hide a model, redirect to a specific page etc.
+        window.location.href = "/profile" //change this to hide a model, redirect to a specific page etc.
 
       })
       .catch((error) => {

@@ -16,22 +16,22 @@ import {
 } from "@mui/material";
 import axios from "axios";
 
-function Feature1() {
-  const [userData, setUserData] = useState([])
+function UserProfile() {
+  const [userData, setUserData] = useState([]);
   const handleUserShow = () => {
-    const user_id = window.localStorage.getItem(`user_id`)
-      console.log("user_id")
-      console.log(user_id)
-      // console.log("props")
-      // console.log(user)
-      axios.get(`http://localhost:3000/user/${user_id}.json`).then(response =>
-      {console.log(response.data.message);
-        console.log("Set User Data");
-        setUserData(response.data.message);
-      })
-  }
-  
-  useEffect(handleUserShow, [])
+    const user_id = window.localStorage.getItem(`user_id`);
+    console.log("user_id");
+    console.log(user_id);
+    // console.log("props")
+    // console.log(user)
+    axios.get(`http://localhost:3000/user/${user_id}.json`).then((response) => {
+      console.log(response.data.message);
+      console.log("Set User Data");
+      setUserData(response.data.message);
+    });
+  };
+
+  useEffect(handleUserShow, []);
 
   const [post, setPost] = React.useState({
     users: [],
@@ -103,7 +103,7 @@ function Feature1() {
                     }}
                   >
                     <Typography color="white" variant="h3">
-                    {userData["name"]}
+                      {userData["name"]}
                     </Typography>
                   </Box>
 
@@ -127,16 +127,27 @@ function Feature1() {
                           <Typography>bio: {userData["bio"]}</Typography>
                         </Box>
                         <Box>
-                          <Typography> passion: {userData["passion"]}</Typography>
+                          <Typography>
+                            {" "}
+                            passion: {userData["passion"]}
+                          </Typography>
                         </Box>
                         <Box>
-                          <Typography>location: {userData["location"]}</Typography>
+                          <Typography>
+                            location: {userData["location"]}
+                          </Typography>
                         </Box>
                         <Box>
-                          <Typography>monthly giving: {userData["monthly_donation_amount"]}</Typography>
+                          <Typography>
+                            monthly giving:{" "}
+                            {userData["monthly_donation_amount"]}
+                          </Typography>
                         </Box>
                         <Box>
-                          <Typography> my_links: {userData["links"]}</Typography>
+                          <Typography>
+                            {" "}
+                            my_links: {userData["links"]}
+                          </Typography>
                         </Box>
                       </CardContent>
                     </Card>
@@ -321,4 +332,4 @@ function Feature1() {
   );
 }
 
-export default Feature1;
+export default UserProfile;

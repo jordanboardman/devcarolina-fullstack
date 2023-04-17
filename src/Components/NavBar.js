@@ -103,7 +103,7 @@ const NavBar = (props) => {
                   margin: "10px",
                 }}
               >
-                <Link to="/feature1" className="link">
+                <Link to="/profile" className="link">
                   User Profile
                 </Link>
               </Button>
@@ -129,6 +129,18 @@ const NavBar = (props) => {
               >
                 <Link to="/login" className="link">
                   login
+                </Link>
+              </Button>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#AA5656",
+                  borderRadius: "15px",
+                  margin: "10px",
+                }}
+              >
+                <Link to="/logout" className="link">
+                  logout
                 </Link>
               </Button>
             </Box>

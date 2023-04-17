@@ -7,7 +7,7 @@ import Login from "./components/Login.js";
 // import Register from "./components/Register.js";
 import SignUp from "./components/SignUp";
 import Error from "./components/Error";
-import Feature1 from "./components/Feature1";
+import UserProfile from "./components/UserProfile";
 import About from "./components/About";
 import LogoutLink from "./components/LogoutLink";
 import UserShow from "./components/UserShow";
@@ -28,7 +28,7 @@ root.render(
           <Route path="/login" element={<Login />} />
            {/* <Route path="/users" element={<Register />} /> */}
           <Route path="*" element={<Error />} />
-          <Route path="/feature1" element={<Feature1 />} />
+          <Route path="/profile" element={<UserProfile />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </BaseLayout>
