@@ -13,6 +13,7 @@ import LogoutLink from "./components/LogoutLink";
 import UserShow from "./components/UserShow";
 import NonprofitsIndex from "./components/NonprofitIndex";
 import "./index.css";
+import UpdateUserProfile from "./components/UpdateUserProfile";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,6 +22,7 @@ root.render(
       <BaseLayout>
         <Routes>
           <Route path="/nonprofits" element={<NonprofitsIndex />} />
+          <Route path="/update" element={<UpdateUserProfile />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/user" element={<UserShow />} />
           <Route path="/logout" element={<LogoutLink />} />
