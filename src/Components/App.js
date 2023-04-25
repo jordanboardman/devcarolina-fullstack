@@ -193,7 +193,7 @@ export default function App() {
                   alt="healthpic"
                 ></CardMedia>
                 <CardContent>
-                  <Link to="/students" underline="none" className="link">
+                  <Link to="/healthpage" underline="none" className="link">
                     <Typography
                       gutterBottom
                       variant="h5"
@@ -237,7 +237,7 @@ export default function App() {
                   alt="environment pic"
                 />
                 <CardContent>
-                  <Link to="/students" underline="none" className="link">
+                  <Link to="/enviopage" underline="none" className="link">
                     <Typography
                       gutterBottom
                       variant="h5"
@@ -281,7 +281,7 @@ export default function App() {
                   alt="world hunger pic"
                 />
                 <CardContent>
-                  <Link to="/students" underline="none" className="link">
+                  <Link to="/hungerpage" underline="none" className="link">
                     <Typography
                       gutterBottom
                       variant="h5"
@@ -325,7 +325,7 @@ export default function App() {
                   alt="emergency response picture"
                 />
                 <CardContent>
-                  <Link to="/students" underline="none" className="link">
+                  <Link to="/emergpage" underline="none" className="link">
                     <Typography
                       gutterBottom
                       variant="h5"
@@ -369,7 +369,7 @@ export default function App() {
                   alt="education pic"
                 />
                 <CardContent>
-                  <Link to="/teachers" underline="none" className="link">
+                  <Link to="/edupage" underline="none" className="link">
                     <Typography
                       gutterBottom
                       variant="h5"
@@ -412,7 +412,7 @@ export default function App() {
                   alt="wildlife pic"
                 />
                 <CardContent>
-                  <Link to="/teachers" underline="none" className="link">
+                  <Link to="/wildpage" underline="none" className="link">
                     <Typography
                       gutterBottom
                       variant="h5"

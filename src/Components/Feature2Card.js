@@ -49,7 +49,9 @@ function Feature2Card(props) {
         <IconButton aria-label="add to favorites">
           <AddIcon />
         </IconButton>
-        <Typography>Add to Plan</Typography>
+        <Typography>
+          <b>Add to Plan</b>
+        </Typography>
 
         <ExpandMore
           expand={expanded}
