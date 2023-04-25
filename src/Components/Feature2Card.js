@@ -7,7 +7,8 @@ import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+// import FavoriteIcon from "@mui/icons-material/Favorite";
+import AddIcon from "@mui/icons-material/Add";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const ExpandMore = styled((props) => {
@@ -46,8 +47,9 @@ function Feature2Card(props) {
       <CardActions disableSpacing>
         {/* Here's where the GET request fuction will be called */}
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+          <AddIcon />
         </IconButton>
+        <Typography>Add to Plan</Typography>
 
         <ExpandMore
           expand={expanded}
