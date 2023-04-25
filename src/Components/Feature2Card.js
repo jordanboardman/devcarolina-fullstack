@@ -22,7 +22,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-function Feature2Card() {
+function Feature2Card(props) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -31,16 +31,17 @@ function Feature2Card() {
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardHeader title="{name}" />
+      <Typography variant="h4">{props.name}</Typography>
+
       <CardMedia
         component="img"
         height="194"
-        image=""
+        image={props.image}
         alt="ripple business picture"
       />
       <CardContent>
         <Typography variant="h6" color="text.secondary">
-          short mission statement for impact partner?
+          {props.statement}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -60,7 +61,7 @@ function Feature2Card() {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Descripton of Impact Partner</Typography>
+          <Typography paragraph>{props.summary}</Typography>
         </CardContent>
       </Collapse>
     </Card>
