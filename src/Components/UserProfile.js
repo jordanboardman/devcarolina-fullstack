@@ -5,6 +5,7 @@ import WildlifePic from "../photos/sid-balachandran-_9a-3NO5KJE-unsplash.jpg";
 import HealthPic from "../photos/online-marketing-hIgeoQjS_iE-unsplash.jpg";
 import { Link } from "react-router-dom";
 import UpdateUserProfile from "./UpdateUserProfile";
+import UploadImage from "./UploadImage";
 import {
   Paper,
   Box,
@@ -41,35 +42,36 @@ function UserProfile() {
     errors: null,
   });
 
-  React.useEffect(() => {
-    axios
-      .get("https://randomuser.me/api/?results")
-      .then((response) =>
-        response.data.results.map((user) => ({
-          name: `${user.name.first} ${user.name.last}`,
-          fname: `${user.name.first}`,
-          username: `${user.login.username}`,
-          email: `${user.email}`,
-          image: `${user.picture.large}`,
-        }))
-      )
-      .then((users) => {
-        setPost({
-          users,
-          isLoading: false,
-        });
-      })
-      .catch((error) => setPost({ error, isLoading: false }));
-  }, []);
+  // React.useEffect(() => {
+  //   axios
+  //     .get("https://randomuser.me/api/?results")
+  //     .then((response) =>
+  //       response.data.results.map((user) => ({
+  //         name: `${user.name.first} ${user.name.last}`,
+  //         fname: `${user.name.first}`,
+  //         username: `${user.login.username}`,
+  //         email: `${user.email}`,
+  //         image: `${user.picture.large}`,
+  //       }))
+  //     )
+  //     .then((users) => {
+  //       setPost({
+  //         users,
+  //         isLoading: false,
+  //       });
+  //     })
+  //     .catch((error) => setPost({ error, isLoading: false }));
+  // }, []);
 
-  if (!post) return null;
+  // if (!post) return null;
 
   return (
     <React.Fragment>
        <div>       
          <UpdateUserProfile user={user} setUser={setUser} />
-  </div>
-      <Box
+        <UploadImage user={user}  setUser={setUser} />
+    </div>
+      <Box 
         sx={{
           display: "flex",
           justifyContent: "space-evenly",
@@ -85,10 +87,7 @@ function UserProfile() {
       >
         <Paper elevation={3}>
           {/* <button onClick={handleUserData}>GetUserData</button> */}
-{/* 
-          {!post.isLoading ? (
-            post.users.map((user) => {
-              const { username, name, email, image } = user; */}
+
                 <Box
                   key={user}
                   sx={{
@@ -117,10 +116,11 @@ function UserProfile() {
                         width: 175,
                         height: 175,
                       }}
-                      src={user["profile_picture"]}
+                      src="Screen Shot 2023-04-25 at 2.52.36 PM.png"
                       alt={user["name"]}
                     />
                   </Box>
+
                   <Box marginTop={5}>
                     <Card sx={{ minWidth: 275 }}>
                       <CardContent>
@@ -161,12 +161,8 @@ function UserProfile() {
         {/* Start of 2nd Paper for User Impact */}
 
         <Paper elevation={3}>
-          {!post.isLoading ? (
-            post.users.map((userDum) => {
-              const { username, fname } = userDum;
-              return (
                 <Box
-                  key={username}
+                  key={user}
                   sx={{
                     display: "flex",
                     justifyContent: "space-evenly",
@@ -187,11 +183,7 @@ function UserProfile() {
                     </Typography>
                   </Box>
                 </Box>
-              );
-            })
-          ) : (
-            <p>Loading...</p>
-          )}
+    
           <Grid container rowSpacing={1}>
             <Grid xs={4} sx={{ padding: "10px" }}>
               <Card

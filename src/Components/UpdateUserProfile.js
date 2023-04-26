@@ -11,6 +11,8 @@ const UpdateUserProfile = ({ user }) => {
   const [email, setEmail] = useState(user.email);
   const [bio, setBio] = useState(user.bio)
   const [id, setId] = useState(user.id)
+  const [passion, setPassion] = useState(user.passion)
+  const [location, setLocation] = useState(user.location)
   
  
   const handleEdit = () => {
@@ -20,6 +22,8 @@ const UpdateUserProfile = ({ user }) => {
     setEmail(user.email);
     setBio(user.bio);
     setId(user.id);
+    setPassion(user.passion);
+    setLocation(user.location);
   };
 
   const handleCancel = () => {
@@ -28,6 +32,8 @@ const UpdateUserProfile = ({ user }) => {
     setEmail(user.email);
     setBio(user.bio);
     setId(user.id);
+    setPassion(user.passion);
+    setLocation(user.location);
   };
 
   const handleSave = (user) => {
@@ -48,29 +54,6 @@ const UpdateUserProfile = ({ user }) => {
     setEditMode(false);
 
   };
-
-  const handleConfirm = () => {
-    // Make an API call to update user profile data with updatedUser
-    fetch(`/api/users/${user.id}`, {
-      method: "GET",
-      body: JSON.stringify(updatedUser),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Update the user object with the updatedUser data
-        // setUser(data);
-        setUpdatedUser(null);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-
-
-      // Here, we're making a PUT request to the server with the updated user data. Once the request is successful, we update the user state with the updated user data, and reset the updatedUser state to null. We're also handling errors in case the API call fails.
-  };
   
   
 
@@ -88,7 +71,7 @@ const UpdateUserProfile = ({ user }) => {
           </label>
           <br />
           <label>
-            Email:
+            Username:
             <input
               type="email"
               value={email}
@@ -101,26 +84,29 @@ const UpdateUserProfile = ({ user }) => {
             <textarea value={bio} onChange={(e) => setBio(e.target.value)} />
           </label>
           <br />
-          <button onClick={() => handleSave({ name, email, bio, id})}>Save</button>
+          <label>
+            Passion:
+            <textarea value={passion} onChange={(e) => setPassion(e.target.value)} />
+          </label>
+          <br />
+          <label>
+            Location:
+            <textarea value={location} onChange={(e) => setLocation(e.target.value)} />
+          </label>
+          <br />
+    
+          <button onClick={() => handleSave({ name, email, bio, id, passion, location})}>Save</button>
           <button onClick={handleCancel}>Cancel</button>
         </form>
       ) : (
         <div>
-          <h2>{user.name}'s Profile</h2>
+          {/* <h2>{user.name}'s Profile</h2>
           <p>Name: {user.name}</p>
-          <p>Email: {user.email}</p>
+          <p>Username: {user.email}</p>
           <p>Bio: {user.bio}</p>
+          <p>Passion: {user.passion}</p>
+          <p>Location: {user.location}</p> */}
           <button onClick={handleEdit}>Edit</button>
-        </div>
-      )}
-      {updatedUser && (
-        <div>
-          <p>Confirm changes to your profile:</p>
-          <p>Name: {updatedUser.name}</p>
-          <p>Email: {updatedUser.email}</p>
-          <p>Bio: {updatedUser.bio}</p>
-          <button onClick={handleConfirm}>Confirm</button>
-          <button onClick={handleCancel}>Cancel</button>
         </div>
       )}
     </div>
