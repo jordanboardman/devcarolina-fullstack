@@ -22,7 +22,7 @@ import WorldHungerPick from "../photos/muhammad-muzamil-7S9x9US26Ow-unsplash.jpg
 import EmergResPic from "../photos/mat-napo-ejWJ3a92FEs-unsplash.jpg";
 import EducationPic from "../photos/kenny-eliason-zFSo6bnZJTw-unsplash.jpg";
 import WildlifePic from "../photos/sid-balachandran-_9a-3NO5KJE-unsplash.jpg";
-import Feature2Card from "./Feature2Card";
+import Feature2Card from "../components/Feature2Card";
 
 const theme = createTheme();
 
