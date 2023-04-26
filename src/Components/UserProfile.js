@@ -67,6 +67,7 @@ function UserProfile() {
 
   return (
     <React.Fragment>
+
        <div>       
          <UpdateUserProfile user={user} setUser={setUser} />
         <UploadImage user={user}  setUser={setUser} />
@@ -116,7 +117,7 @@ function UserProfile() {
                         width: 175,
                         height: 175,
                       }}
-                      src="Screen Shot 2023-04-25 at 2.52.36 PM.png"
+                      src={user["profile_picture"]}
                       alt={user["name"]}
                     />
                   </Box>

@@ -2,93 +2,53 @@ import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 
-export const UploadImage = ({ user }) => {
-const [selectedFile, setSelectedFile] = useState(null);
-const [fileContents, setFileContents] = useState(null);
-const [imageSrc, setImageSrc] = useState(null);
+function UploadImage({user}) {
+  const [profilePicture, setProfilePicture] = useState(user.profile_picture);
 
+  function handleProfilePictureChange(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      setProfilePicture(event.target.result);
+    };
+    // console.log("event.target.result")
+    // console.log(event.target.result)
+    // console.log("profilePicture")
+    // console.log(profilePicture)
+    reader.readAsDataURL(file);
+    }
 
-//this function sets "file" to the chosen file
-const handleFileChange = (event) => {
-  console.log(event.target.files[0])
-  const file = event.target.files[0];
-  setSelectedFile(file);
-  setImageSrc(URL.createObjectURL(event.target.files[0]));
-  console.log("imageSource")
-  console.log(imageSrc)
-
-
-  // this function reads the file
-  const reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onload = () => {
-    setFileContents(reader.result);
-  };
-
-};
-
-const handleProfilePictureUpload =  () => {
-  const formData = new FormData();
-  formData.append('user[profile_picture]', selectedFile);
-  console.log("selectedFile")
-  console.log(selectedFile["name"])
-  console.log("formData")
-  console.log(formData.append)
-
-  fetch(`http://localhost:3000/user/${user.id}`, {
-    method: 'PATCH',
-    body: formData,
-    credentials: 'include' // Include cookies in the request
-  })
-    .then(response => {
-      console.log(response.data);
-      // Handle the response from the server
-    })
-    .catch(error => {
-      // Handle errors that may occur during the request
-    });
-};
-
-  const handleUpdateProfile = (event) => {
-    event.preventDefault();
-console.log(event.target)
-    axios.patch(`http://localhost:3000/user/${user.id}`, selectedFile)
-.then(response => {
-  // Handle successful response from server
-  console.log(response.data);
-  // setUpdatedUser(response.data);
-})
-
+    function handleProfileUpdate() {
+      axios.patch(`http://localhost:3000/user/${user.id}`, { profile_picture: profilePicture })
+        .then(response => {
+          console.log('Profile updated successfully');
+        })
+        .catch(error => {
+          console.error('Error updating profile', error);
+        });
+        window.location.href= "/profile"
   }
-  
 
-return (
-
-<div>
-
-      <label htmlFor="file-upload">Choose a file:</label>
-      <input type="file" onChange={handleFileChange} />
-      {imageSrc && <img src={imageSrc} alt="Uploaded file preview" />}
-
-      {/* {fileContents && (
-        <div>
-          <p>Selected file: {selectedFile.name}</p>
-          {selectedFile.type.startsWith('image') ? (
-            <img src={fileContents} alt={selectedFile.name} />
-          )  :  (
-            <a href={fileContents} download={selectedFile.name}>
-              Download {selectedFile.name}
-            </a>
-          )}
-          <button onClick={handleProfilePictureUpload}>Upload</button>
-        </div>
-      )} */}
+  return (
+    <div>
+      <h2>User Profile</h2>
+      <div>
+        <label htmlFor="profile-picture">Profile Picture:</label>
+        <input
+          type="file"
+          id="profile-picture"
+          name="profile-picture"
+          accept="image/*"
+          onChange={handleProfilePictureChange}
+        />
+      </div>
+      <div>
+        <img src={profilePicture} alt="Profile" />
+      </div>
+      <button onClick={handleProfileUpdate}>Update Profile</button>
     </div>
-
-);
-
-
-};
+  );
+}
 
 export default UploadImage;
 
