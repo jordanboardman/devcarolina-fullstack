@@ -42,9 +42,9 @@ function UploadImage({user}) {
           onChange={handleProfilePictureChange}
         />
       </div>
-      <div>
-        <img src={profilePicture} alt="Profile" />
-      </div>
+      {/* <div>
+        <img src={profilePicture} alt="Profile" height="150px"/>
+      </div> */}
       <button onClick={handleProfileUpdate}>Update Profile</button>
     </div>
   );
