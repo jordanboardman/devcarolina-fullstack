@@ -6,6 +6,8 @@ import React, { useState, setError } from "react";
 import UserShow from "./UserShow";
 import "../index.css";
 import axios from "axios";
+import { Box, Paper, Button } from "@mui/material";
+
 
 export function Login() {
   const [errors, setErrors] = useState([]);
@@ -25,7 +27,7 @@ export function Login() {
         const user_id = window.localStorage.getItem(`user_id`);
         event.target.reset();
         event.preventDefault();
-        window.location.href = "/feature1"; //change this to hide a model, redirect to a specific page etc.
+        window.location.href = "/profile"; //change this to hide a model, redirect to a specific page etc.
       })
       .catch((error) => {
         console.log(error.reponse);

@@ -103,7 +103,7 @@ const NavBar = (props) => {
                   margin: "10px",
                 }}
               >
-                <Link to="/feature1" className="link">
+                <Link to="/profile" className="link">
                   User Profile
                 </Link>
               </Button>

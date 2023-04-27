@@ -4,6 +4,8 @@ import EducationPic from "../photos/kenny-eliason-zFSo6bnZJTw-unsplash.jpg";
 import WildlifePic from "../photos/sid-balachandran-_9a-3NO5KJE-unsplash.jpg";
 import HealthPic from "../photos/online-marketing-hIgeoQjS_iE-unsplash.jpg";
 import { Link } from "react-router-dom";
+import UpdateUserProfile from "./UpdateUserProfile";
+import UploadImage from "./UploadImage";
 import {
   Paper,
   Box,
@@ -16,8 +18,9 @@ import {
 } from "@mui/material";
 import axios from "axios";
 
-function Feature1() {
-  const [userData, setUserData] = useState([]);
+function UserProfile() {
+
+  const [user, setUser] = useState({});
   const handleUserShow = () => {
     const user_id = window.localStorage.getItem(`user_id`);
     console.log("user_id");
@@ -27,7 +30,7 @@ function Feature1() {
     axios.get(`http://localhost:3000/user/${user_id}.json`).then((response) => {
       console.log(response.data.message);
       console.log("Set User Data");
-      setUserData(response.data.message);
+      setUser(response.data.message);
     });
   };
 
@@ -39,32 +42,37 @@ function Feature1() {
     errors: null,
   });
 
-  React.useEffect(() => {
-    axios
-      .get("https://randomuser.me/api/?results")
-      .then((response) =>
-        response.data.results.map((user) => ({
-          name: `${user.name.first} ${user.name.last}`,
-          fname: `${user.name.first}`,
-          username: `${user.login.username}`,
-          email: `${user.email}`,
-          image: `${user.picture.large}`,
-        }))
-      )
-      .then((users) => {
-        setPost({
-          users,
-          isLoading: false,
-        });
-      })
-      .catch((error) => setPost({ error, isLoading: false }));
-  }, []);
+  // React.useEffect(() => {
+  //   axios
+  //     .get("https://randomuser.me/api/?results")
+  //     .then((response) =>
+  //       response.data.results.map((user) => ({
+  //         name: `${user.name.first} ${user.name.last}`,
+  //         fname: `${user.name.first}`,
+  //         username: `${user.login.username}`,
+  //         email: `${user.email}`,
+  //         image: `${user.picture.large}`,
+  //       }))
+  //     )
+  //     .then((users) => {
+  //       setPost({
+  //         users,
+  //         isLoading: false,
+  //       });
+  //     })
+  //     .catch((error) => setPost({ error, isLoading: false }));
+  // }, []);
 
-  if (!post) return null;
+  // if (!post) return null;
 
   return (
     <React.Fragment>
-      <Box
+
+       <div>       
+         <UpdateUserProfile user={user} setUser={setUser} />
+        <UploadImage user={user}  setUser={setUser} />
+    </div>
+      <Box 
         sx={{
           display: "flex",
           justifyContent: "space-evenly",
@@ -81,12 +89,8 @@ function Feature1() {
         <Paper elevation={3}>
           {/* <button onClick={handleUserData}>GetUserData</button> */}
 
-          {!post.isLoading ? (
-            post.users.map((user) => {
-              const { username, name, email, image } = user;
-              return (
                 <Box
-                  key={username}
+                  key={user}
                   sx={{
                     display: "flex",
                     justifyContent: "space-evenly",
@@ -101,9 +105,9 @@ function Feature1() {
                       borderRadius: "20px",
                       padding: "10px",
                     }}
-                  >
+                  >                  
                     <Typography color="white" variant="h3">
-                      {userData["name"]}
+                      {user["name"]}
                     </Typography>
                   </Box>
 
@@ -113,61 +117,53 @@ function Feature1() {
                         width: 175,
                         height: 175,
                       }}
-                      src={userData["profile_picture"]}
-                      alt={userData["name"]}
+                      src={user["profile_picture"]}
+                      alt={user["name"]}
                     />
                   </Box>
+
                   <Box marginTop={5}>
                     <Card sx={{ minWidth: 275 }}>
                       <CardContent>
                         <Box>
-                          <Typography>Username: {userData["email"]}</Typography>
+                          <Typography>Username: {user["email"]}</Typography>
                         </Box>
                         <Box>
-                          <Typography>bio: {userData["bio"]}</Typography>
+                          <Typography>bio: {user["bio"]}</Typography>
                         </Box>
                         <Box>
                           <Typography>
                             {" "}
-                            passion: {userData["passion"]}
+                            passion: {user["passion"]}
                           </Typography>
                         </Box>
                         <Box>
                           <Typography>
-                            location: {userData["location"]}
+                            location: {user["location"]}
                           </Typography>
                         </Box>
                         <Box>
                           <Typography>
                             monthly giving:{" "}
-                            {userData["monthly_donation_amount"]}
+                            {user["monthly_donation_amount"]}
                           </Typography>
                         </Box>
                         <Box>
                           <Typography>
                             {" "}
-                            my_links: {userData["links"]}
+                            my_links: {user["links"]}
                           </Typography>
                         </Box>
                       </CardContent>
                     </Card>
                   </Box>
                 </Box>
-              );
-            })
-          ) : (
-            <p>Loading...</p>
-          )}
         </Paper>
         {/* Start of 2nd Paper for User Impact */}
 
         <Paper elevation={3}>
-          {!post.isLoading ? (
-            post.users.map((user) => {
-              const { username, fname } = user;
-              return (
                 <Box
-                  key={username}
+                  key={user}
                   sx={{
                     display: "flex",
                     justifyContent: "space-evenly",
@@ -184,15 +180,11 @@ function Feature1() {
                     }}
                   >
                     <Typography color="white" variant="h3">
-                      {fname}'s Impact
+                    {user["name"]}'s Impact
                     </Typography>
                   </Box>
                 </Box>
-              );
-            })
-          ) : (
-            <p>Loading...</p>
-          )}
+    
           <Grid container rowSpacing={1}>
             <Grid xs={4} sx={{ padding: "10px" }}>
               <Card
@@ -332,4 +324,4 @@ function Feature1() {
   );
 }
 
-export default Feature1;
+export default UserProfile;
