@@ -41,17 +41,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <main>
-        {/* <Box
-          component="img"
-          sx={{
-            height: 233,
-            width: 350,
-            maxHeight: { xs: 233, md: 167 },
-            maxWidth: { xs: 350, md: 250 },
-          }}
-          alt="person with changes in hands"
-          src="public/photos/hands-with-change.jpg"
-        /> */}
+        {/* Start of main page */}
         <Box
           sx={{
             display: "flex",
@@ -99,7 +89,7 @@ export default function App() {
               spacing={2}
               justifyContent="center"
             >
-              <Link to="/about" underline="none" className="link">
+              <Link to="/selectcatpage" underline="none" className="link">
                 <Button
                   size="large"
                   sx={{
@@ -110,7 +100,9 @@ export default function App() {
                   }}
                   variant="contained"
                 >
-                  Learn More
+                  <Typography variant="h5">
+                    <b>Get Started</b>
+                  </Typography>
                 </Button>
               </Link>
             </Stack>
@@ -426,7 +418,6 @@ export default function App() {
                       Wildlife
                     </Typography>
                   </Link>
-                  {/* <Typography>description for company 3</Typography> */}
                 </CardContent>
               </Card>
             </Grid>

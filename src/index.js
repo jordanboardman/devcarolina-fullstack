@@ -18,6 +18,7 @@ import WorldHunPage from "./pages/WorldHunPage";
 import EmergPage from "./pages/EmergPage";
 import EduPage from "./pages/EduPage";
 import WildPage from "./pages/WildPage";
+import SelectCatPage from "./pages/SelectCatPage";
 import "./index.css";
 import UpdateUserProfile from "./components/UpdateUserProfile";
 
@@ -44,6 +45,7 @@ root.render(
           <Route path="/emergpage" element={<EmergPage />} />
           <Route path="/edupage" element={<EduPage />} />
           <Route path="/wildpage" element={<WildPage />} />
+          <Route path="/selectcatpage" element={<SelectCatPage />} />
         </Routes>
       </BaseLayout>
     </Router>
