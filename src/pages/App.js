@@ -498,10 +498,10 @@ export default function App() {
                 >
                   <CardContent>
                     <Feature2Card
-                      name="The Ocean Cleanup"
-                      statement="Ingenious project led by Boyan Slat"
-                      summary="The Ocean Cleanup is a nonprofit environmental engineering organization based in the Netherlands, that develops technology to extract plastic pollution from the oceans and intercept it in rivers before it can reach the ocean."
-                      image="https://assets.theoceancleanup.com/app/uploads/2020/01/1911-The-Ocean-Cleanup-BoyaninAsia-DvdK-1111149-960x640.jpg"
+                    // name="The Ocean Cleanup"
+                    // statement="Ingenious project led by Boyan Slat"
+                    // summary="The Ocean Cleanup is a nonprofit environmental engineering organization based in the Netherlands, that develops technology to extract plastic pollution from the oceans and intercept it in rivers before it can reach the ocean."
+                    // image="https://assets.theoceancleanup.com/app/uploads/2020/01/1911-The-Ocean-Cleanup-BoyaninAsia-DvdK-1111149-960x640.jpg"
                     />
                   </CardContent>
                 </Card>
@@ -520,10 +520,10 @@ export default function App() {
                 >
                   <CardContent>
                     <Feature2Card
-                      name="American Red Cross"
-                      statement="This tried and true Non-Profit, founded by Clara Barton, has been serving American for over 100 years"
-                      summary="The American Red Cross, also known as the American National Red Cross, is a non-profit humanitarian organization that provides emergency assistance, disaster relief, and disaster preparedness education in the United States."
-                      image="https://www.robeson.edu/wp-content/uploads/redcross.jpg"
+                    // name="American Red Cross"
+                    // statement="This tried and true Non-Profit, founded by Clara Barton, has been serving American for over 100 years"
+                    // summary="The American Red Cross, also known as the American National Red Cross, is a non-profit humanitarian organization that provides emergency assistance, disaster relief, and disaster preparedness education in the United States."
+                    // image="https://www.robeson.edu/wp-content/uploads/redcross.jpg"
                     />
                   </CardContent>
                 </Card>
@@ -542,10 +542,10 @@ export default function App() {
                 >
                   <CardContent>
                     <Feature2Card
-                      name="The Nature Conservancy"
-                      statement="Essential for tackling climate change on the front lines"
-                      summary="Founded in the U.S. through grassroots action in 1951, The Nature Conservancy (TNC) has grown to become one of the most effective and wide-reaching environmental organizations in the world. Thanks to more than a million members and the dedicated efforts of our diverse staff and over 400 scientists, we impact conservation in 79 countries and territories: 37 by direct conservation impact and 42 through partners."
-                      image="https://cooksoncommunications.com/wp-content/uploads/Nature-C-logo.jpg"
+                    // name="The Nature Conservancy"
+                    // statement="Essential for tackling climate change on the front lines"
+                    // summary="Founded in the U.S. through grassroots action in 1951, The Nature Conservancy (TNC) has grown to become one of the most effective and wide-reaching environmental organizations in the world. Thanks to more than a million members and the dedicated efforts of our diverse staff and over 400 scientists, we impact conservation in 79 countries and territories: 37 by direct conservation impact and 42 through partners."
+                    // image="https://cooksoncommunications.com/wp-content/uploads/Nature-C-logo.jpg"
                     />
                   </CardContent>
                 </Card>
@@ -564,10 +564,10 @@ export default function App() {
                 >
                   <CardContent>
                     <Feature2Card
-                      name="ASPCA"
-                      statement="American Society for the Prevention of Cruelty to Animals"
-                      summary="The American Society for the Prevention of Cruelty to Animals is a non-profit organization dedicated to preventing animal cruelty. Based in New York City since its inception in 1866, the organization's mission is to provide effective means for the prevention of cruelty to animals throughout the United States."
-                      image="https://yt3.googleusercontent.com/ytc/AGIKgqMzlPHbduSCIRihb1HKZDI-pH0q5Jvd7kTRpnkU2hI=s900-c-k-c0x00ffffff-no-rj"
+                    // name="ASPCA"
+                    // statement="American Society for the Prevention of Cruelty to Animals"
+                    // summary="The American Society for the Prevention of Cruelty to Animals is a non-profit organization dedicated to preventing animal cruelty. Based in New York City since its inception in 1866, the organization's mission is to provide effective means for the prevention of cruelty to animals throughout the United States."
+                    // image="https://yt3.googleusercontent.com/ytc/AGIKgqMzlPHbduSCIRihb1HKZDI-pH0q5Jvd7kTRpnkU2hI=s900-c-k-c0x00ffffff-no-rj"
                     />
                   </CardContent>
                 </Card>

@@ -19,7 +19,6 @@ import {
 import axios from "axios";
 
 function UserProfile() {
-
   const [user, setUser] = useState({});
   const handleUserShow = () => {
     const user_id = window.localStorage.getItem(`user_id`);
@@ -67,20 +66,15 @@ function UserProfile() {
 
   return (
     <React.Fragment>
-
-       <div>       
-         <UpdateUserProfile user={user} setUser={setUser} />
-        <UploadImage user={user}  setUser={setUser} />
-    </div>
-      <Box 
+      <Box
         sx={{
           display: "flex",
           justifyContent: "space-evenly",
           flexWrap: "wrap",
           "& > :not(style)": {
             m: "8px",
-            width: "32vw",
-            height: "50vh",
+            width: "35vw",
+            height: "70vh",
             marginTop: "58px",
             backgroundColor: "#B99B6B",
           },
@@ -89,102 +83,97 @@ function UserProfile() {
         <Paper elevation={3}>
           {/* <button onClick={handleUserData}>GetUserData</button> */}
 
-                <Box
-                  key={user}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-evenly",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                  marginTop={5}
-                >
-                  <Box
-                    sx={{
-                      backgroundColor: "#AA5656",
-                      borderRadius: "20px",
-                      padding: "10px",
-                    }}
-                  >                  
-                    <Typography color="white" variant="h3">
-                      {user["name"]}
+          <Box
+            key={user}
+            sx={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+            marginTop={5}
+          >
+            <Box
+              sx={{
+                backgroundColor: "#AA5656",
+                borderRadius: "20px",
+                padding: "10px",
+              }}
+            >
+              <Typography color="white" variant="h3">
+                {user["name"]}
+              </Typography>
+            </Box>
+
+            <Box marginTop={5}>
+              <Avatar
+                sx={{
+                  width: 175,
+                  height: 175,
+                }}
+                src={user["profile_picture"]}
+                alt={user["name"]}
+              />
+            </Box>
+            <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
+              <UpdateUserProfile user={user} setUser={setUser} />
+              <UploadImage user={user} setUser={setUser} />
+            </Box>
+
+            <Box marginTop={5}>
+              <Card sx={{ minWidth: 275 }}>
+                <CardContent>
+                  <Box>
+                    <Typography>Username: {user["email"]}</Typography>
+                  </Box>
+                  <Box>
+                    <Typography>bio: {user["bio"]}</Typography>
+                  </Box>
+                  <Box>
+                    <Typography> passion: {user["passion"]}</Typography>
+                  </Box>
+                  <Box>
+                    <Typography>location: {user["location"]}</Typography>
+                  </Box>
+                  <Box>
+                    <Typography>
+                      monthly giving: {user["monthly_donation_amount"]}
                     </Typography>
                   </Box>
-
-                  <Box marginTop={5}>
-                    <Avatar
-                      sx={{
-                        width: 175,
-                        height: 175,
-                      }}
-                      src={user["profile_picture"]}
-                      alt={user["name"]}
-                    />
+                  <Box>
+                    <Typography> my_links: {user["links"]}</Typography>
                   </Box>
-
-                  <Box marginTop={5}>
-                    <Card sx={{ minWidth: 275 }}>
-                      <CardContent>
-                        <Box>
-                          <Typography>Username: {user["email"]}</Typography>
-                        </Box>
-                        <Box>
-                          <Typography>bio: {user["bio"]}</Typography>
-                        </Box>
-                        <Box>
-                          <Typography>
-                            {" "}
-                            passion: {user["passion"]}
-                          </Typography>
-                        </Box>
-                        <Box>
-                          <Typography>
-                            location: {user["location"]}
-                          </Typography>
-                        </Box>
-                        <Box>
-                          <Typography>
-                            monthly giving:{" "}
-                            {user["monthly_donation_amount"]}
-                          </Typography>
-                        </Box>
-                        <Box>
-                          <Typography>
-                            {" "}
-                            my_links: {user["links"]}
-                          </Typography>
-                        </Box>
-                      </CardContent>
-                    </Card>
-                  </Box>
-                </Box>
+                </CardContent>
+              </Card>
+            </Box>
+          </Box>
         </Paper>
         {/* Start of 2nd Paper for User Impact */}
 
         <Paper elevation={3}>
-                <Box
-                  key={user}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-evenly",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                  marginTop={5}
-                >
-                  <Box
-                    sx={{
-                      backgroundColor: "#AA5656",
-                      borderRadius: "20px",
-                      padding: "10px",
-                    }}
-                  >
-                    <Typography color="white" variant="h3">
-                    {user["name"]}'s Impact
-                    </Typography>
-                  </Box>
-                </Box>
-    
+          <Box
+            key={user}
+            sx={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+            marginTop={5}
+          >
+            <Box
+              sx={{
+                backgroundColor: "#AA5656",
+                borderRadius: "20px",
+                padding: "10px",
+              }}
+            >
+              <Typography color="white" variant="h3">
+                {user["name"]}'s Impact
+              </Typography>
+            </Box>
+          </Box>
+
           <Grid container rowSpacing={1}>
             <Grid xs={4} sx={{ padding: "10px" }}>
               <Card
