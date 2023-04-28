@@ -74,7 +74,7 @@ function UserProfile() {
           "& > :not(style)": {
             m: "8px",
             width: "35vw",
-            height: "70vh",
+            height: "85vh",
             marginTop: "58px",
             backgroundColor: "#B99B6B",
           },
@@ -90,6 +90,10 @@ function UserProfile() {
               justifyContent: "space-evenly",
               flexDirection: "column",
               alignItems: "center",
+              backgroundColor: "#F1DBBF",
+              padding: "20px",
+              margin: "20px",
+              borderRadius: "20px",
             }}
             marginTop={5}
           >
@@ -116,12 +120,10 @@ function UserProfile() {
               />
             </Box>
             <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
-              <UpdateUserProfile user={user} setUser={setUser} />
               <UploadImage user={user} setUser={setUser} />
             </Box>
-
-            <Box marginTop={5}>
-              <Card sx={{ minWidth: 275 }}>
+            <Box marginTop={5} sx={{ display: "flex" }}>
+              <Card sx={{ display: "flex", minWidth: 275 }}>
                 <CardContent>
                   <Box>
                     <Typography>Username: {user["email"]}</Typography>
@@ -142,6 +144,9 @@ function UserProfile() {
                   </Box>
                   <Box>
                     <Typography> my_links: {user["links"]}</Typography>
+                  </Box>
+                  <Box sx={{ display: "flex" }}>
+                    <UpdateUserProfile user={user} setUser={setUser} />
                   </Box>
                 </CardContent>
               </Card>
