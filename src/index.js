@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import App from "./pages/App";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BaseLayout from "./components/layout/BaseLayout.js";
-import Login from "./components/Login.js";
 // import Register from "./components/Register.js";
 import SignUp from "./components/SignUp";
 import Error from "./components/Error";
@@ -23,6 +22,7 @@ import "./index.css";
 import UpdateUserProfile from "./components/UpdateUserProfile";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import SignIn from "./components/SignIn";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -36,7 +36,7 @@ root.render(
           <Route path="/user" element={<UserShow />} />
           <Route path="/logout" element={<LogoutLink />} />
           <Route path="/" element={<App />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/signin" element={<SignIn />} />
           {/* <Route path="/users" element={<Register />} /> */}
           <Route path="*" element={<Error />} />
           <Route path="/profile" element={<UserProfile />} />

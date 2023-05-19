@@ -139,8 +139,8 @@ const NavBar = (props) => {
                   margin: "10px",
                 }}
               >
-                <Link to="/login" className="link">
-                  login
+                <Link to="/signin" className="link">
+                  Sign In
                 </Link>
               </Button>
               <Button
