@@ -6,6 +6,7 @@ import HealthPic from "../photos/online-marketing-hIgeoQjS_iE-unsplash.jpg";
 import { Link } from "react-router-dom";
 import UpdateUserProfile from "./UpdateUserProfile";
 import UploadImage from "./UploadImage";
+
 import {
   Paper,
   Box,
@@ -64,14 +65,13 @@ function UserProfile() {
   // }, []);
 
   // if (!post) return null;
-
+ function test() {
+  console.log("working")
+ }
   return (
     <React.Fragment>
 
-       <div>       
-         <UpdateUserProfile user={user} setUser={setUser} />
-        <UploadImage user={user}  setUser={setUser} />
-    </div>
+      
       <Box 
         sx={{
           display: "flex",
@@ -87,7 +87,8 @@ function UserProfile() {
         }}
       >
         <Paper elevation={3}>
-          {/* <button onClick={handleUserData}>GetUserData</button> */}
+          {/* <button onClick={handleUserData}>GetUserData</button> */}     
+         <UpdateUserProfile user={user} setUser={setUser} />
 
                 <Box
                   key={user}
@@ -105,7 +106,7 @@ function UserProfile() {
                       borderRadius: "20px",
                       padding: "10px",
                     }}
-                  >                  
+                  >  
                     <Typography color="white" variant="h3">
                       {user["name"]}
                     </Typography>
@@ -120,6 +121,7 @@ function UserProfile() {
                       src={user["profile_picture"]}
                       alt={user["name"]}
                     />
+                     <UploadImage user={user}  setUser={setUser} />
                   </Box>
 
                   <Box marginTop={5}>
