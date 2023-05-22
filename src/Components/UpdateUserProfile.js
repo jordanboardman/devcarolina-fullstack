@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import { Button, Grid, Typography } from '@mui/material';
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import ReactModal from 'react-modal';
+import TextField from "@mui/material/TextField";
 
 const UpdateUserProfile = ({ user }) => {
 
 
-  const [editMode, setEditMode] = useState(false);
+  // const [editMode, setEditMode] = useState(false);
   const [updatedUser, setUpdatedUser] = useState('null');
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
@@ -13,11 +16,24 @@ const UpdateUserProfile = ({ user }) => {
   const [id, setId] = useState(user.id)
   const [passion, setPassion] = useState(user.passion)
   const [location, setLocation] = useState(user.location)
-  
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const modalContentStyles = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    maxWidth: '400px', // Adjust the width as needed
+    background: 'white',
+    padding: '20px',
+    borderRadius: '4px',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
+  };
  
   const handleEdit = () => {
     console.log("ineditnow")
-    setEditMode(true);
+    // setEditMode(true);
+    setModalOpen(true)
     setName(user.name);
     setEmail(user.email);
     setBio(user.bio);
@@ -27,7 +43,8 @@ const UpdateUserProfile = ({ user }) => {
   };
 
   const handleCancel = () => {
-    setEditMode(false);
+    // setEditMode(false);
+    setModalOpen(false)
     setName(user.name);
     setEmail(user.email);
     setBio(user.bio);
@@ -47,70 +64,110 @@ const UpdateUserProfile = ({ user }) => {
       setUpdatedUser(response.data);
     })
     window.location.href= "/profile"
-    .catch(error => {
-      // Handle error response from server
-      console.error(error);
-    });
-    setEditMode(false);
-
+    // .catch (error => {
+    //   // Handle error response from server
+    //   console.error(error);
+    // });
+    // setEditMode(false);
+    setModalOpen(false)
   };
   
-  
-
   return (
     <div>
-      {editMode ? (
+<button onClick={handleEdit}
+                style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}
+   >
+      <ModeEditIcon 
+      />
+    </button>
+
+    
+ {modalOpen && (
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0, 0, 0, 0.5)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <div style={modalContentStyles}>
         <form>
-          <label>
-            Name:
-            <input
+        <Grid container spacing={2} alignItems="center">
+          <Grid item xs={4}>  
+          <Typography align="right">Name:</Typography>
+          </Grid>
+          <Grid item xs={8}>
+            <TextField
+            fullWidth
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-          </label>
+          </Grid>
+         
           <br />
-          <label>
-            Username:
-            <input
+          <Grid item xs={4}>  
+          <Typography align="right">Location:</Typography>
+          </Grid>
+
+          <Grid item xs={8}>
+            <TextField
+            fullWidth
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-          </label>
+            </Grid>
+         
           <br />
-          <label>
-            Bio:
-            <textarea value={bio} onChange={(e) => setBio(e.target.value)} />
-          </label>
+          <Grid item xs={4}>  
+          <Typography align="right">Bio:</Typography>
+          </Grid>
+
+          <Grid item xs={8}>
+            <TextField
+            fullWidth
+             value={bio} onChange={(e) => setBio(e.target.value)} />
+          </Grid>
+
           <br />
-          <label>
-            Passion:
-            <textarea value={passion} onChange={(e) => setPassion(e.target.value)} />
-          </label>
+          <Grid item xs={4}>  
+          <Typography align="right">Passion:</Typography>
+          </Grid>
+                <Grid item xs={8}>
+            <TextField
+            fullWidth
+             value={passion} onChange={(e) => setPassion(e.target.value)} />
+            </Grid>
+
           <br />
-          <label>
-            Location:
-            <textarea value={location} onChange={(e) => setLocation(e.target.value)} />
-          </label>
+          <Grid item xs={4}>  
+          <Typography align="right">Location:</Typography>
+          </Grid>
+          <Grid item xs={8}>
+            <TextField
+            fullWidth
+             value={location} onChange={(e) => setLocation(e.target.value)} />
+          </Grid>
           <br />
+          </Grid>
+
     
-          <button onClick={() => handleSave({ name, email, bio, id, passion, location})}>Save</button>
-          <button onClick={handleCancel}>Cancel</button>
+          <Button onClick={() => handleSave({ name, email, bio, id, passion, location})}>Save</Button>
+          <Button onClick={handleCancel}>Cancel</Button>
         </form>
-      ) : (
-        <div>
-          {/* <h2>{user.name}'s Profile</h2>
-          <p>Name: {user.name}</p>
-          <p>Username: {user.email}</p>
-          <p>Bio: {user.bio}</p>
-          <p>Passion: {user.passion}</p>
-          <p>Location: {user.location}</p> */}
-          <button onClick={handleEdit}>Edit</button>
         </div>
-      )}
-    </div>
+      </div>
+    )}  
+        </div>
+  
   );
 };
 
-export default UpdateUserProfile;
+export default UpdateUserProfile ;
