@@ -1,3 +1,5 @@
+// KEEPING ALL COMMENTED CODE UNTIL THIS WORKS
+
 // import React from "react";
 // import { useState } from "react";
 // import axios from "axios";
@@ -94,6 +96,8 @@
 // export default SignUp;
 
 import * as React from "react";
+import { useState } from "react";
+import axios from "axios";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -117,9 +121,9 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      {/* <Link color="inherit" href="https://mui.com/">
         Your Website
-      </Link>{" "}
+      </Link>{" "} */}
       {new Date().getFullYear()}
       {"."}
     </Typography>
@@ -129,14 +133,40 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+  // Esther's backend call
+  const [errors, setErrors] = useState([]);
+
   const handleSubmit = (event) => {
+    console.log("handleing submit...");
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    console.log(event.target);
+    const params = new FormData(event.target);
+    console.log(params);
+    axios
+      .post("http://localhost:3000/users", params)
+      .then((response) => {
+        console.log(response.data);
+        // clears form
+        event.target.reset();
+        event.preventDefault();
+        window.location.href = "/profile"; //change this to hide a model, redirect to a specific page etc.
+      })
+      .catch((error) => {
+        console.log("consoling becasuse there is an error!");
+        console.log(error.response.data.errors);
+        setErrors(error.response.data.errors);
+      });
   };
+
+  // Not Esther's backend call
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   console.log({
+  //     email: data.get("email"),
+  //     password: data.get("password"),
+  //   });
+  // };
 
   return (
     <ThemeProvider theme={theme}>
@@ -233,6 +263,10 @@ export default function SignUp() {
         </Box>
         <Copyright sx={{ mt: 5 }} />
       </Container>
+      {/* This shows the errors to user:  */}
+      {errors.map((error) => (
+        <Box> {error} </Box>
+      ))}
     </ThemeProvider>
   );
 }
