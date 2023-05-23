@@ -23,10 +23,12 @@ import EmergResPic from "../photos/mat-napo-ejWJ3a92FEs-unsplash.jpg";
 import EducationPic from "../photos/kenny-eliason-zFSo6bnZJTw-unsplash.jpg";
 import WildlifePic from "../photos/sid-balachandran-_9a-3NO5KJE-unsplash.jpg";
 import Feature2Card from "../components/Feature2Card";
+import { useEffect } from "react";
 
 const theme = createTheme();
 
 const Item = styled(Paper)(({ theme }) => ({
+  
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(12),
@@ -37,6 +39,14 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function App() {
+  // const user_id = window.localStorage.getItem(`user_id`);
+  // console.log("user_id");
+  // console.log(user_id);
+
+  // useEffect(App, []);
+
+
+  
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

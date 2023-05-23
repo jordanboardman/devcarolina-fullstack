@@ -20,7 +20,9 @@ import axios from "axios";
 
 function UserProfile() {
   const [user, setUser] = useState({});
+
   const handleUserShow = () => {
+    console.log("inUsershowpage");
     const user_id = window.localStorage.getItem(`user_id`);
     console.log("user_id");
     console.log(user_id);
