@@ -1,100 +1,3 @@
-// KEEPING ALL COMMENTED CODE UNTIL THIS WORKS
-
-// import React from "react";
-// import { useState } from "react";
-// import axios from "axios";
-// import { Box, Paper, Button } from "@mui/material";
-
-// export function SignUp() {
-//   const [errors, setErrors] = useState([]);
-
-//   const handleSubmit = (event) => {
-//     console.log("handleing submit...");
-//     event.preventDefault();
-//     console.log(event.target);
-//     const params = new FormData(event.target);
-//     console.log(params);
-//     axios
-//       .post("http://localhost:3000/user.json", params)
-//       .then((response) => {
-//         console.log(response.data);
-//         // clears form
-//         event.target.reset();
-//         event.preventDefault();
-//         window.location.href = "/profile"; //change this to hide a model, redirect to a specific page etc.
-//       })
-//       .catch((error) => {
-//         console.log("consoling becasuse there is an error!");
-//         console.log(error.response.data.errors);
-//         setErrors(error.response.data.errors);
-//       });
-//   };
-
-//   return (
-//     <>
-//       {/* 1ST ITERATION */}
-//       {/* <Box
-//         sx={{
-//           display: "flex",
-//           justifyContent: "center",
-//           "& > :not(style)": {
-//             m: 1,
-//             width: "35vw",
-//             height: "35vh",
-//             position: "fixed",
-//             top: "25%",
-//           },
-//         }}
-//       >
-//         <Paper
-//           elevation={3}
-//           sx={{
-//             display: "flex",
-//             justifyContent: "center",
-//             marginTop: "10px",
-//             backgroundColor: "#F1DBBF",
-//           }}
-//         >
-//           <form
-//             onSubmit={handleSubmit}
-//             margin="20px"
-//             direction="column"
-//             spacing={1}
-//           >
-//             <h3>Make a Difference</h3>
-//             Name: <input name="name" type="name" />
-//             <br />
-//             Email: <input name="email" type="email" />
-//             <br />
-//             Password: <input name="password" type="password"/>
-//             <br />
-//             Confirm Password: <input name="password" type="password"/>
-//             <br />
-//             <Box display="flex">
-//               <Button
-//                 type="submit"
-//                 variant="contained"
-//                 sx={{ borderRadius: "20px", width: "100px", marginTop: "10px" }}
-//               >
-//                 Sign Up
-//               </Button> */}
-//       {/* Signup */}
-//       {/* This shows the errors to user:  */}
-//       {/* {errors.map((error) => (
-//                 <Box> {error} </Box>
-//               ))}
-//             </Box>
-//           </form>
-//         </Paper>
-//       </Box> */}
-
-//       {/* 2nd ITERATION */}
-//     </>
-//   );
-// }
-
-// export default SignUp;
-
 import * as React from "react";
 import { useState } from "react";
 import axios from "axios";
@@ -111,6 +14,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+
 
 function Copyright(props) {
   return (
@@ -133,40 +37,48 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
-  // Esther's backend call
+
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = (event) => {
     console.log("handleing submit...");
     event.preventDefault();
-    console.log(event.target);
-    const params = new FormData(event.target);
-    console.log(params);
-    axios
-      .post("http://localhost:3000/users", params)
-      .then((response) => {
-        console.log(response.data);
-        // clears form
-        event.target.reset();
-        event.preventDefault();
-        window.location.href = "/profile"; //change this to hide a model, redirect to a specific page etc.
-      })
-      .catch((error) => {
-        console.log("consoling becasuse there is an error!");
-        console.log(error.response.data.errors);
-        setErrors(error.response.data.errors);
-      });
-  };
 
-  // Not Esther's backend call
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-  //   console.log({
-  //     email: data.get("email"),
-  //     password: data.get("password"),
-  //   });
-  // };
+    const params = new FormData(event.target);
+
+    //axios call to create user
+   axios
+      .post("http://localhost:3000/user.json", params)
+      .then((response1) => {
+        console.log("Response 1:", response1.data);
+
+       //reset form
+       event.target.reset();
+
+       axios
+       .post("http://localhost:3000/sessions.json", params)
+       .then((response2) => {
+        console.log("Response 2:", response2.data);
+
+        // Set authorization header and store JWT in local storage
+        axios.defaults.headers.common["Authorization"] = "Bearer " + response2.data.jwt;
+        localStorage.setItem("jwt", response2.data.jwt);
+        localStorage.setItem("user_id", response2.data.user_id);
+
+        const user_id = window.localStorage.getItem("user_id");
+
+       window.location.href = "/profile"; //change this to hide a model, redirect to a specific page etc.
+        })
+        .catch((error) => {
+          console.log("Error:", error.response);
+          setErrors(["Invalid Email or Password"]);
+        });
+    })
+    .catch((error) => {
+      console.log("Error:", error.response.data.errors);
+      setErrors(error.response.data.errors);
+    });
+};
 
   return (
     <ThemeProvider theme={theme}>
@@ -193,25 +105,15 @@ export default function SignUp() {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} >
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="name" type="name"
                   required
                   fullWidth
                   id="firstName"
-                  label="First Name"
+                  label="Name"
                   autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -263,6 +165,8 @@ export default function SignUp() {
         </Box>
         <Copyright sx={{ mt: 5 }} />
       </Container>
+
+
       {/* This shows the errors to user:  */}
       {errors.map((error) => (
         <Box> {error} </Box>
