@@ -6,6 +6,7 @@ import HealthPic from "../photos/online-marketing-hIgeoQjS_iE-unsplash.jpg";
 import { Link } from "react-router-dom";
 import UpdateUserProfile from "./UpdateUserProfile";
 import UploadImage from "./UploadImage";
+
 import {
   Paper,
   Box,
@@ -63,7 +64,9 @@ function UserProfile() {
   // }, []);
 
   // if (!post) return null;
-
+ function test() {
+  console.log("working")
+ }
   return (
     <React.Fragment>
       <Box
@@ -81,8 +84,10 @@ function UserProfile() {
         }}
       >
         <Paper elevation={3}>
-          {/* <button onClick={handleUserData}>GetUserData</button> */}
+          {/* <button onClick={handleUserData}>GetUserData</button> */}     
+         <UpdateUserProfile user={user} setUser={setUser} />
 
+<<<<<<< HEAD
           <Box
             key={user}
             sx={{
@@ -144,6 +149,40 @@ function UserProfile() {
                   </Box>
                   <Box>
                     <Typography> my_links: {user["links"]}</Typography>
+=======
+                <Box
+                  key={user}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                  marginTop={5}
+                >
+                  <Box
+                    sx={{
+                      backgroundColor: "#AA5656",
+                      borderRadius: "20px",
+                      padding: "10px",
+                    }}
+                  >  
+                    <Typography color="white" variant="h3">
+                      {user["name"]}
+                    </Typography>
+                  </Box>
+
+                  <Box marginTop={5}>
+                    <Avatar
+                      sx={{
+                        width: 175,
+                        height: 175,
+                      }}
+                      src={user["profile_picture"]}
+                      alt={user["name"]}
+                    />
+                     <UploadImage user={user}  setUser={setUser} />
+>>>>>>> main
                   </Box>
                   <Box sx={{ display: "flex" }}>
                     <UpdateUserProfile user={user} setUser={setUser} />

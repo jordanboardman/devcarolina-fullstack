@@ -38,12 +38,12 @@ function Feature2Card(props) {
       <CardMedia
         component="img"
         height="194"
-        image={props.image}
+        image={props.picture}
         alt="ripple business picture"
       />
       <CardContent>
         <Typography variant="h6" color="text.secondary">
-          {props.statement}
+          {props.description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -66,7 +66,7 @@ function Feature2Card(props) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>{props.summary}</Typography>
+          <Typography paragraph>{props.website}</Typography>
         </CardContent>
       </Collapse>
     </Card>

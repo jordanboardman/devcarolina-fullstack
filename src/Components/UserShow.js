@@ -34,8 +34,8 @@ return(
   <br/>
  location: {userData["location"]}
   <br/>
- my_links: {userData["links"]}
-  <br/>
+ {/* my_links: {userData["links"]} */}
+  {/* <br/> */}
  monthly giving: {userData["monthly_donation_amount"]}
   </div>
  )
