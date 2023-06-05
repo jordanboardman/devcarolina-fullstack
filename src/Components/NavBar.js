@@ -5,7 +5,7 @@ import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
-import Logo from "../photos/ripple-logo1.png";
+import Logo from "../photos/Ripple Logo copy.png";
 import Image from "mui-image";
 // import MenuIcon from "@mui/icons-material/Menu";
 
@@ -115,6 +115,18 @@ const NavBar = (props) => {
                   margin: "10px",
                 }}
               >
+                <Link to="/selectcatpage" className="link">
+                  Our Impact
+                </Link>
+              </Button>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#AA5656",
+                  borderRadius: "15px",
+                  margin: "10px",
+                }}
+              >
                 <Link to="/signup" className="link">
                   Sign Up
                 </Link>
@@ -127,8 +139,8 @@ const NavBar = (props) => {
                   margin: "10px",
                 }}
               >
-                <Link to="/login" className="link">
-                  login
+                <Link to="/signin" className="link">
+                  Sign In
                 </Link>
               </Button>
               <Button

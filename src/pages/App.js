@@ -39,25 +39,24 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function App() {
-
-  const [nonprofits, setNonprofits] = useState([])
+  const [nonprofits, setNonprofits] = useState([]);
 
   const handlePartnersShow = () => {
-    axios.get("http://localhost:3000/nonprofits.json").then
-    ((response) => {
+    axios.get("http://localhost:3000/nonprofits.json").then((response) => {
       console.log(response.data.message);
       setNonprofits(response.data.message);
       console.log("nonprofits");
       console.log(nonprofits);
     });
   };
-  
+
   useEffect(handlePartnersShow, []);
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <main>
+        {/* Start of main page */}
         <Box
           sx={{
             display: "flex",
@@ -105,7 +104,7 @@ export default function App() {
               spacing={2}
               justifyContent="center"
             >
-              <Link to="/about" underline="none" className="link">
+              <Link to="/selectcatpage" underline="none" className="link">
                 <Button
                   size="large"
                   sx={{
@@ -116,7 +115,9 @@ export default function App() {
                   }}
                   variant="contained"
                 >
-                  Learn More
+                  <Typography variant="h5">
+                    <b>Get Started</b>
+                  </Typography>
                 </Button>
               </Link>
             </Stack>
@@ -425,7 +426,6 @@ export default function App() {
                       Wildlife
                     </Typography>
                   </Link>
-                  {/* <Typography>description for company 3</Typography> */}
                 </CardContent>
               </Card>
             </Grid>
@@ -490,38 +490,34 @@ export default function App() {
                 Our Partners Include
               </Typography>
             </CardContent>
-
-       
           </Stack>
           <Grid container rowSpacing={1}>
             <Grid item xs={6} sx={{ padding: "10px" }}>
               {nonprofits.map((nonprofit) => {
                 return (
-                    <Card
-                  sx={{
-                    backgroundColor: "#8D99AE22",
-                    color: "#2B2C42",
-                    display: "flex",
-                    flexWrap: "wrap",
-                    flexDirection: "row",
-                    borderRadius: "20px",
-                    justifyContent: "center",
-                  }}
-                >
-                  <CardContent>
-                    <Feature2Card
-                      name={nonprofit.name}
-                      description={nonprofit.description}
-                      picture={nonprofit.picture}
-                      website={nonprofit.website}
-                    />
-                  </CardContent>
-                </Card>
-
-                  )
-                })
-              }
-              </Grid>
+                  <Card
+                    sx={{
+                      backgroundColor: "#8D99AE22",
+                      color: "#2B2C42",
+                      display: "flex",
+                      flexWrap: "wrap",
+                      flexDirection: "row",
+                      borderRadius: "20px",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <CardContent>
+                      <Feature2Card
+                        name={nonprofit.name}
+                        description={nonprofit.description}
+                        picture={nonprofit.picture}
+                        website={nonprofit.website}
+                      />
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </Grid>
           </Grid>
         </Container>
       </main>

@@ -16,6 +16,7 @@ body {
   margin-bottom: 125px;
   min-height: 400px;
   clear: both;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 
 #login {
@@ -42,4 +43,3 @@ body {
 a {
   color: white;
 }
-
