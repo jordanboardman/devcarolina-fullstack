@@ -1,16 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
-import { Typography } from '@mui/material';
+// import { Typography } from '@mui/material';
 import { Button } from '@mui/material';
-import Icon from '@mui/material/Icon';
-
-<Icon>star</Icon>;
-
+// import Icon from '@mui/material/Icon';
 
 function UploadImage({user}) {
   const [profilePicture, setProfilePicture] = useState(user.profile_picture);
-  const [clicked, setClicked] = useState(false);
 
   function handleProfilePictureChange(event) {
     const file = event.target.files[0];
@@ -23,7 +19,6 @@ function UploadImage({user}) {
     // console.log("profilePicture")
     // console.log(profilePicture)
     reader.readAsDataURL(file);
-    setClicked(false); 
     }
 
     function handleProfileUpdate() {
@@ -40,7 +35,7 @@ function UploadImage({user}) {
   return (
     <div> 
 
-      {clicked ?
+
       <div>
         <label htmlFor="profile-picture"></label>
         <input
@@ -50,12 +45,10 @@ function UploadImage({user}) {
           accept="image/*"
           onChange={handleProfilePictureChange}
         /> 
-        </div>
-        : 
-        <div>
+      
         {/* <img src={profilePicture} alt="Profile" height="150px"/> */}
         <Button variant="outlined"  size="small" onClick={handleProfileUpdate}>Update Profile</Button>
-      </div>}
+      </div>
       {/* <div>
         <img src={profilePicture} alt="Profile" height="150px"/>
       </div> */}

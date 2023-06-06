@@ -121,7 +121,7 @@ function UserProfile() {
                       src={user["profile_picture"]}
                       alt={user["name"]}
                     />
-                     <UploadImage user={user}  setUser={setUser} />
+                     {/* <UploadImage user={user}  setUser={setUser} /> */}
                   </Box>
 
                   <Box marginTop={5}>

@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Button, Grid, Typography } from '@mui/material';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
-import ReactModal from 'react-modal';
+// import ReactModal from 'react-modal';
 import TextField from "@mui/material/TextField";
+import UploadImage from './UploadImage';
+import Feature2Card from './Feature2Card';
 
 const UpdateUserProfile = ({ user }) => {
 
@@ -17,6 +19,7 @@ const UpdateUserProfile = ({ user }) => {
   const [passion, setPassion] = useState(user.passion)
   const [location, setLocation] = useState(user.location)
   const [modalOpen, setModalOpen] = useState(false);
+  const [profilePicture, setProfilePicture] = useState(user.profile_picture);
 
   const modalContentStyles = {
     position: 'absolute',
@@ -40,6 +43,7 @@ const UpdateUserProfile = ({ user }) => {
     setId(user.id);
     setPassion(user.passion);
     setLocation(user.location);
+    setProfilePicture(user.profile_picture)
   };
 
   const handleCancel = () => {
@@ -51,6 +55,7 @@ const UpdateUserProfile = ({ user }) => {
     setId(user.id);
     setPassion(user.passion);
     setLocation(user.location);
+    setProfilePicture(user.profile_picture)
   };
 
   const handleSave = (user) => {
@@ -60,10 +65,10 @@ const UpdateUserProfile = ({ user }) => {
     axios.patch(`http://localhost:3000/user/${user.id}`, user)
     .then(response => {
       // Handle successful response from server
-      console.log(response.data);
+      // console.log(response.data);
       setUpdatedUser(response.data);
     })
-    window.location.href= "/profile"
+    // window.location.href= "/profile"
     // .catch (error => {
     //   // Handle error response from server
     //   console.error(error);
@@ -74,6 +79,7 @@ const UpdateUserProfile = ({ user }) => {
   
   return (
     <div>
+
 <button onClick={handleEdit}
                 style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}
    >
@@ -145,21 +151,14 @@ const UpdateUserProfile = ({ user }) => {
             fullWidth
              value={passion} onChange={(e) => setPassion(e.target.value)} />
             </Grid>
-
+          </Grid>
           <br />
           <Grid item xs={4}>  
-          <Typography align="right">Location:</Typography>
+          <Typography align="right"> </Typography>
+          <UploadImage user={user} value={profilePicture} onChange={(e) => setProfilePicture(e.target.result)} />
           </Grid>
-          <Grid item xs={8}>
-            <TextField
-            fullWidth
-             value={location} onChange={(e) => setLocation(e.target.value)} />
-          </Grid>
-          <br />
-          </Grid>
-
-    
-          <Button onClick={() => handleSave({ name, email, bio, id, passion, location})}>Save</Button>
+        
+          <Button onClick={() => handleSave({ name, email, bio, id, passion, location, profilePicture})}>Save</Button>
           <Button onClick={handleCancel}>Cancel</Button>
         </form>
         </div>
