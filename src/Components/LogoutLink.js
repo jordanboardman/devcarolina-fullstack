@@ -4,16 +4,14 @@ import "../index.css";
 
 // This code logs a user out
 export function LogoutLink() {
-  
   const handleClick = () => {
     // event.preventDefault();
     delete axios.defaults.headers.common["Authorization"];
     localStorage.removeItem("jwt");
     localStorage.removeItem("user_id");
-    window.location.href = "/login";
-
+    window.location.href = "/signin";
   };
-  
+
   useEffect(handleClick, []);
   return (
     <div id="logout">
