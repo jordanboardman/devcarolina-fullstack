@@ -148,8 +148,18 @@ function UserProfile() {
                       monthly giving: {user["monthly_donation_amount"]}
                     </Typography>
                   </Box>
-                  <Box>
-                    <Typography> my_links: {user["links"]}</Typography>
+
+                  <Box marginTop={5}>
+                    <Avatar
+                      sx={{
+                        width: 175,
+                        height: 175,
+                      }}
+                      src={user["profile_picture"]}
+                      alt={user["name"]}
+                    />
+                     {/* <UploadImage user={user}  setUser={setUser} /> */}
+
                   </Box>
                   <Box sx={{ display: "flex" }}>
                     <UpdateUserProfile user={user} setUser={setUser} />
