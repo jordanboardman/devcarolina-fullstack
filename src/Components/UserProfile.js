@@ -149,7 +149,18 @@ function UserProfile() {
                     </Typography>
                   </Box>
 
-            
+                  <Box marginTop={5}>
+                    <Avatar
+                      sx={{
+                        width: 175,
+                        height: 175,
+                      }}
+                      src={user["profile_picture"]}
+                      alt={user["name"]}
+                    />
+                     {/* <UploadImage user={user}  setUser={setUser} /> */}
+
+                  </Box>
                   <Box sx={{ display: "flex" }}>
                     <UpdateUserProfile user={user} setUser={setUser} />
                   </Box>
