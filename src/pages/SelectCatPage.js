@@ -15,7 +15,6 @@ import WildlifePic from "../photos/sid-balachandran-_9a-3NO5KJE-unsplash.jpg";
 function SelectCatPage() {
   return (
     <>
-      (
       <CardContent sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
         <Typography
           component="h2"
@@ -294,7 +293,6 @@ function SelectCatPage() {
           </Card>
         </Grid>
       </Grid>
-      )
     </>
   );
 }
