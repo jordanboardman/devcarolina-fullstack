@@ -3,13 +3,15 @@ import Feature2Card from "../components/Feature2Card";
 import { Box, Typography } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Login } from "@mui/icons-material";
+import { Login, PropaneSharp } from "@mui/icons-material";
+import { useLocation, useParams } from "react-router-dom";
 
-
-function Category() {
+function Category(props) {
 
 const [nonprofits, setNonprofits] = useState([])
 const urlSegment = window.location.href.split('/').pop()
+const location = useLocation();
+
 
 
 useEffect(() => {
@@ -18,6 +20,8 @@ useEffect(() => {
 
 const getNonPorfits = () => {
   console.log("getting Catagores");
+  // console.log(location.state);
+  // location.state is null
   fetch("http://localhost:3000/nonprofits.json")
   .then (response => response.json())
   .then(data => {
@@ -33,8 +37,7 @@ const getNonPorfits = () => {
 
   return (
     <>
-
-    <div>Nonprofits
+    {/* <div>Nonprofits
       <ul>
         {nonprofits.map(nonprofit => (
           <li key={nonprofit.id}>{nonprofit.name}</li>
@@ -42,7 +45,7 @@ const getNonPorfits = () => {
       </ul>
 
       <b> {urlSegment}</b>
-    </div>
+    </div> */}
 
       <Box
         sx={{
@@ -61,7 +64,7 @@ const getNonPorfits = () => {
           }}
           variant="h2"
         >
-          Catagory
+         {/* //*INSERT CATAGORY NAME  */} Catagories
         </Typography>
       </Box>
       <Box

@@ -15,7 +15,7 @@ import axios from "axios";
 import { useEffect, useState} from "react";
 
 function SelectCatPage() {
-const [catagories, setCatagories] = useState([])
+const [categories, setCategories] = useState([])
 
   useEffect(() => {
     getCatagories();
@@ -26,7 +26,7 @@ const [catagories, setCatagories] = useState([])
     axios.get("http://localhost:3000/catagories.json")
       .then(response => {
         console.log(response.data)
-        setCatagories(response.data.message);
+        setCategories(response.data.message);
       })
       .catch(error => {
         console.error(error);
@@ -47,7 +47,7 @@ const [catagories, setCatagories] = useState([])
         </Typography>
       </CardContent>
       <Grid container spacing={1}>
-      {catagories.map((category) => (
+      {categories.map((category) => (
         <Grid item xs={4} key={category.id}>
           <Card
             sx={{
@@ -61,7 +61,17 @@ const [catagories, setCatagories] = useState([])
             }}
           >
             <CardContent>
-              <Link to={`/category/${category.id}`} underline="none" className="link">
+              <Link 
+               to={{
+                pathname: `/category/${category.id}`,
+                state: {
+                  categoryName: category.name,
+                  categoryId: category.id
+                }
+              }}
+              underline="none"
+              className="link"
+              >
                 <Typography
                   gutterBottom
                   variant="h5"
