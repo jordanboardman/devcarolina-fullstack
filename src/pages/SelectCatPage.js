@@ -13,10 +13,10 @@ import EducationPic from "../photos/kenny-eliason-zFSo6bnZJTw-unsplash.jpg";
 import WildlifePic from "../photos/sid-balachandran-_9a-3NO5KJE-unsplash.jpg";
 import axios from "axios";
 import { useEffect, useState} from "react";
+import { Category } from "@mui/icons-material";
 
 function SelectCatPage() {
 const [categories, setCategories] = useState([])
-
   useEffect(() => {
     getCatagories();
   }, []); // Empty dependency array ensures it only runs once on mount
@@ -46,6 +46,15 @@ const [categories, setCategories] = useState([])
           What are you most passionate about?
         </Typography>
       </CardContent>
+
+        {/* <Category categories={categories}/> */}
+
+        {/* <div>
+        {categories.map(category => (
+          <li key={category.id}>{category.name}</li>
+        ))}  
+        </div> */}
+
       <Grid container spacing={1}>
       {categories.map((category) => (
         <Grid item xs={4} key={category.id}>
@@ -64,10 +73,6 @@ const [categories, setCategories] = useState([])
               <Link 
                to={{
                 pathname: `/category/${category.id}`,
-                state: {
-                  categoryName: category.name,
-                  categoryId: category.id
-                }
               }}
               underline="none"
               className="link"
