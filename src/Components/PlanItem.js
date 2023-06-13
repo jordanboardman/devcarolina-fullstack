@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { ShopContext } from "../context/plan-context";
 import { DATA } from "../data";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -29,7 +30,8 @@ function PlanItem(props) {
     setExpanded(!expanded);
   };
 
-  // Need this variable?
+  const { removeFromPlan } = useContext(ShopContext);
+
   const { id, description, website } = props.data;
 
   return (
@@ -48,7 +50,12 @@ function PlanItem(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        {/* Here's where the GET request fuction will be called */}
+        <IconButton
+          aria-label="add to favorites"
+          onClick={() => removeFromPlan(id)}
+        >
+          <RemoveIcon />
+        </IconButton>
         <Typography>Added!</Typography>
 
         <ExpandMore
