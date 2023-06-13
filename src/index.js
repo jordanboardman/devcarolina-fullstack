@@ -23,10 +23,11 @@ import UpdateUserProfile from "./components/UpdateUserProfile";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import SignIn from "./components/SignIn";
+import { ShopContextProvider } from "./context/plan-context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <ShopContextProvider>
     <Router>
       <BaseLayout>
         <Routes>
@@ -51,5 +52,5 @@ root.render(
         </Routes>
       </BaseLayout>
     </Router>
-  </React.StrictMode>
+  </ShopContextProvider>
 );

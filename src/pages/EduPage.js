@@ -1,7 +1,9 @@
 import React from "react";
 import Feature2Card from "../components/Feature2Card";
 import { Box, Typography } from "@mui/material";
+import { DATA } from "../data";
 
+// USING AS SHOP PAGE FOR NOW
 function EduPage() {
   return (
     <>
@@ -35,10 +37,10 @@ function EduPage() {
           borderRadius: "20px",
         }}
       >
+        {/* <Feature2Card />
         <Feature2Card />
         <Feature2Card />
-        <Feature2Card />
-        <Feature2Card />
+        <Feature2Card /> */}
       </Box>
       <Box
         sx={{
@@ -50,10 +52,13 @@ function EduPage() {
           borderRadius: "20px",
         }}
       >
+        {/* <Feature2Card />
         <Feature2Card />
         <Feature2Card />
-        <Feature2Card />
-        <Feature2Card />
+        <Feature2Card /> */}
+        {DATA.map((product) => (
+          <Feature2Card data={product} />
+        ))}
       </Box>
     </>
   );

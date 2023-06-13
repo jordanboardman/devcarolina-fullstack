@@ -7,13 +7,9 @@ import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-// import FavoriteIcon from "@mui/icons-material/Favorite";
-import AddIcon from "@mui/icons-material/Add";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { ShopContext } from "../context/plan-context";
 import { DATA } from "../data";
-
-// USING AS PRODUCT FOR NOW
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -26,15 +22,14 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-function Feature2Card(props) {
+function PlanItem(props) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  const { addToPlan } = useContext(ShopContext);
-
+  // Need this variable?
   const { id, description, website } = props.data;
 
   return (
@@ -53,12 +48,8 @@ function Feature2Card(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites" onClick={() => addToPlan(id)}>
-          <AddIcon />
-        </IconButton>
-        <Typography>
-          <b>Add to Plan</b>
-        </Typography>
+        {/* Here's where the GET request fuction will be called */}
+        <Typography>Added!</Typography>
 
         <ExpandMore
           expand={expanded}
@@ -78,4 +69,4 @@ function Feature2Card(props) {
   );
 }
 
-export default Feature2Card;
+export default PlanItem;
