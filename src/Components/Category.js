@@ -48,10 +48,6 @@ const getCategory = () => {
 
   return (
     <>
-     <div>
-      <h2>Child Component</h2>
-      <p>Received category name: </p>
-    </div>
       <Box
         sx={{
           display: "flex",
