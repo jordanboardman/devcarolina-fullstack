@@ -13,10 +13,10 @@ import EducationPic from "../photos/kenny-eliason-zFSo6bnZJTw-unsplash.jpg";
 import WildlifePic from "../photos/sid-balachandran-_9a-3NO5KJE-unsplash.jpg";
 import axios from "axios";
 import { useEffect, useState} from "react";
+import { Category } from "@mui/icons-material";
 
 function SelectCatPage() {
-const [catagories, setCatagories] = useState([])
-
+const [categories, setCategories] = useState([])
   useEffect(() => {
     getCatagories();
   }, []); // Empty dependency array ensures it only runs once on mount
@@ -26,7 +26,7 @@ const [catagories, setCatagories] = useState([])
     axios.get("http://localhost:3000/catagories.json")
       .then(response => {
         console.log(response.data)
-        setCatagories(response.data.message);
+        setCategories(response.data.message);
       })
       .catch(error => {
         console.error(error);
@@ -46,8 +46,17 @@ const [catagories, setCatagories] = useState([])
           What are you most passionate about?
         </Typography>
       </CardContent>
+
+        {/* <Category categories={categories}/> */}
+
+        {/* <div>
+        {categories.map(category => (
+          <li key={category.id}>{category.name}</li>
+        ))}  
+        </div> */}
+
       <Grid container spacing={1}>
-      {catagories.map((category) => (
+      {categories.map((category) => (
         <Grid item xs={4} key={category.id}>
           <Card
             sx={{
@@ -61,7 +70,13 @@ const [catagories, setCatagories] = useState([])
             }}
           >
             <CardContent>
-              <Link to={`/category/${category.id}`} underline="none" className="link">
+              <Link 
+               to={{
+                pathname: `/category/${category.id}`,
+              }}
+              underline="none"
+              className="link"
+              >
                 <Typography
                   gutterBottom
                   variant="h5"

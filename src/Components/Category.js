@@ -3,24 +3,25 @@ import Feature2Card from "../components/Feature2Card";
 import { Box, Typography } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Login } from "@mui/icons-material";
 
 
 function Category() {
-
 const [nonprofits, setNonprofits] = useState([])
+const [category, setCategory] = useState([])
 const urlSegment = window.location.href.split('/').pop()
+
 
 
 useEffect(() => {
   getNonPorfits();
+  getCategory();
 }, []); // Empty dependency array ensures it only runs once on mount
 
 const getNonPorfits = () => {
-  console.log("getting Catagores");
   fetch("http://localhost:3000/nonprofits.json")
   .then (response => response.json())
   .then(data => {
+    console.log("Nonprofits", data.message)
       const filterNonprofits = data.message.filter(nonprofit => nonprofit.catagory_id === parseInt(urlSegment));
       setNonprofits(filterNonprofits);
     })
@@ -29,21 +30,24 @@ const getNonPorfits = () => {
     });
 };
 
+const getCategory = () => {
+  fetch("http://localhost:3000/catagories.json")
+  .then (response => response.json())
+  .then(data => {
+    console.log(data.message);
+    const matchingCategory = data.message.find(category => category.id === parseInt(urlSegment));
+    if (matchingCategory) {
+      setCategory(matchingCategory.name);
+    } else {
+      console.log("Category not found.");
+    }
+  })
+}
+
 
 
   return (
     <>
-
-    <div>Nonprofits
-      <ul>
-        {nonprofits.map(nonprofit => (
-          <li key={nonprofit.id}>{nonprofit.name}</li>
-        ))}
-      </ul>
-
-      <b> {urlSegment}</b>
-    </div>
-
       <Box
         sx={{
           display: "flex",
@@ -61,7 +65,7 @@ const getNonPorfits = () => {
           }}
           variant="h2"
         >
-          Catagory
+        {category}
         </Typography>
       </Box>
       <Box
@@ -86,5 +90,6 @@ const getNonPorfits = () => {
     </>
   );
 }
+
 
 export default Category;
