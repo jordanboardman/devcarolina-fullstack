@@ -1,11 +1,10 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import EducationPic from "../photos/kenny-eliason-zFSo6bnZJTw-unsplash.jpg";
-import WildlifePic from "../photos/sid-balachandran-_9a-3NO5KJE-unsplash.jpg";
-import HealthPic from "../photos/online-marketing-hIgeoQjS_iE-unsplash.jpg";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
 import UpdateUserProfile from "./UpdateUserProfile";
 import UploadImage from "./UploadImage";
+import { ShopContext } from "../context/plan-context";
+import { DATA } from "../data";
+import PlanItem from "./PlanItem";
 
 import {
   Paper,
@@ -21,6 +20,9 @@ import axios from "axios";
 
 function UserProfile() {
   const [user, setUser] = useState({});
+  const { planItems } = useContext(ShopContext);
+
+  // console.dir(meow.planItems);
 
   const handleUserShow = () => {
     console.log("inUsershowpage");
@@ -163,45 +165,15 @@ function UserProfile() {
 
           <Grid container rowSpacing={1}>
             <Grid xs={4} sx={{ padding: "10px" }}>
-              {/* User's added cards should go here */}
-              {/* <Card
-                sx={{
-                  backgroundColor: "#8D99AE22",
-                  color: "#2B2C42",
-                  display: "flex",
-                  flexWrap: "wrap",
-                  flexDirection: "row",
-                  borderRadius: "20px",
-                  justifyContent: "center",
-                }}
-              ></Card>
-            </Grid>
-
-            <Grid xs={4} sx={{ padding: "10px" }}>
-              <Card
-                sx={{
-                  backgroundColor: "#8D99AE22",
-                  color: "#2B2C42",
-                  display: "flex",
-                  flexWrap: "wrap",
-                  flexDirection: "row",
-                  borderRadius: "20px",
-                  justifyContent: "center",
-                }}
-              ></Card>
-            </Grid>
-            <Grid xs={4} sx={{ padding: "10px" }}>
-              <Card
-                sx={{
-                  backgroundColor: "#8D99AE22",
-                  color: "#2B2C42",
-                  display: "flex",
-                  flexWrap: "wrap",
-                  flexDirection: "row",
-                  borderRadius: "20px",
-                  justifyContent: "center",
-                }}
-              ></Card> */}
+              {/* User's added cards populate here when addToPlan is clicked in Feature2Card */}
+              <Box>
+                {planItems.map((product) => {
+                  if (planItems[product.id] !== 0) {
+                    return <PlanItem data={product} />;
+                  }
+                  console.log(DATA);
+                })}
+              </Box>
             </Grid>
           </Grid>
         </Paper>

@@ -1,6 +1,7 @@
 import React from "react";
 import Feature2Card from "../components/Feature2Card";
 import { Box, Typography } from "@mui/material";
+import { DATA } from "../data";
 
 function EduPage() {
   return (
@@ -22,7 +23,7 @@ function EduPage() {
           }}
           variant="h2"
         >
-          Education
+          Support
         </Typography>
       </Box>
       <Box
@@ -35,25 +36,10 @@ function EduPage() {
           borderRadius: "20px",
         }}
       >
-        <Feature2Card />
-        <Feature2Card />
-        <Feature2Card />
-        <Feature2Card />
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-evenly",
-          padding: "20px",
-          margin: "20px",
-          backgroundColor: "#B99B6B",
-          borderRadius: "20px",
-        }}
-      >
-        <Feature2Card />
-        <Feature2Card />
-        <Feature2Card />
-        <Feature2Card />
+        {/* Here's where I mapped through the objects in the data.js file as a dummy API */}
+        {/* {DATA.map((product) => (
+          <Feature2Card data={product} />
+        ))} */}
       </Box>
     </>
   );

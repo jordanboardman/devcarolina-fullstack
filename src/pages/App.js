@@ -452,7 +452,6 @@ export default function App() {
                 padding: "20px",
               }}
             >
-              <img src="/Logos/equalizer.png" alt="" />
               Pick your favorite businesses and/or nonprofits
             </Item>
             <Item
@@ -463,7 +462,6 @@ export default function App() {
                 padding: "20px",
               }}
             >
-              <img src="/Logos/medal.png" alt="" />
               Add them to your list
             </Item>
             <Item
@@ -474,7 +472,6 @@ export default function App() {
                 padding: "20px",
               }}
             >
-              <img src="/Logos/rock.png" alt="" />
               Set your monthly amount and we'll take care of the rest!
             </Item>
 
