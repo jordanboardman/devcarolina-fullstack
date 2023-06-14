@@ -181,7 +181,7 @@ function UserProfile() {
               {/* User's added cards should go here */}
               <div>
                 {planItems.map((product) => {
-                  if (planItems[product.id] !== 4) {
+                  if (planItems[product.id] !== 0) {
                     return <PlanItem data={product} />;
                   }
                   console.log(DATA);

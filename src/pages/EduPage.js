@@ -24,7 +24,7 @@ function EduPage() {
           }}
           variant="h2"
         >
-          Education
+          Support
         </Typography>
       </Box>
       <Box
@@ -37,25 +37,6 @@ function EduPage() {
           borderRadius: "20px",
         }}
       >
-        {/* <Feature2Card />
-        <Feature2Card />
-        <Feature2Card />
-        <Feature2Card /> */}
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-evenly",
-          padding: "20px",
-          margin: "20px",
-          backgroundColor: "#B99B6B",
-          borderRadius: "20px",
-        }}
-      >
-        {/* <Feature2Card />
-        <Feature2Card />
-        <Feature2Card />
-        <Feature2Card /> */}
         {DATA.map((product) => (
           <Feature2Card data={product} />
         ))}

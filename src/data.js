@@ -20,4 +20,25 @@ export const DATA = [
     description: "this pokemon memory though",
     website: "www.pokemons.com",
   },
+  {
+    id: 5,
+    description: "item 5",
+    website: "www.5.com",
+  },
+
+  {
+    id: 6,
+    description: "item 6",
+    website: "www.6.com",
+  },
+  {
+    id: 7,
+    description: "item 7",
+    website: "www.7.com",
+  },
+  {
+    id: 8,
+    description: "this dog though",
+    website: "www.dog.com",
+  },
 ];
