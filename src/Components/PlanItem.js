@@ -1,3 +1,4 @@
+// This is the new component that populates when addToPlan is clicked in the Feature2Card component.
 import React, { useContext } from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
@@ -7,9 +8,9 @@ import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import AddIcon from "@mui/icons-material/Add";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { ShopContext } from "../context/plan-context";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -22,15 +23,15 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-function Feature2Card(props) {
+function PlanItem(props) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  // Apart of the useContext work to User Profile.
-  const { addToPlan } = useContext(ShopContext);
+  // Here's the useContext stuff
+  const { removeFromPlan } = useContext(ShopContext);
 
   const { id, description, website } = props.data;
 
@@ -50,13 +51,14 @@ function Feature2Card(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        {/* Where the cards add to user profile on click */}
-        <IconButton aria-label="add to favorites" onClick={() => addToPlan(id)}>
-          <AddIcon />
+        {/* removeFromPlan is currently broken :-( Not sure how to fix it as of yet. */}
+        <IconButton
+          aria-label="add to favorites"
+          onClick={() => removeFromPlan(id)}
+        >
+          <RemoveIcon />
         </IconButton>
-        <Typography>
-          <b>Add to Plan</b>
-        </Typography>
+        <Typography>Added!</Typography>
 
         <ExpandMore
           expand={expanded}
@@ -76,4 +78,4 @@ function Feature2Card(props) {
   );
 }
 
-export default Feature2Card;
+export default PlanItem;

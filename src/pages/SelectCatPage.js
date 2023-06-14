@@ -12,28 +12,28 @@ import EmergResPic from "../photos/mat-napo-ejWJ3a92FEs-unsplash.jpg";
 import EducationPic from "../photos/kenny-eliason-zFSo6bnZJTw-unsplash.jpg";
 import WildlifePic from "../photos/sid-balachandran-_9a-3NO5KJE-unsplash.jpg";
 import axios from "axios";
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { Category } from "@mui/icons-material";
 
 function SelectCatPage() {
-const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([]);
   useEffect(() => {
     getCatagories();
   }, []); // Empty dependency array ensures it only runs once on mount
 
   const getCatagories = () => {
     console.log("getting Catagores");
-    axios.get("http://localhost:3000/catagories.json")
-      .then(response => {
-        console.log(response.data)
+    axios
+      .get("http://localhost:3000/catagories.json")
+      .then((response) => {
+        console.log(response.data);
         setCategories(response.data.message);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
         // Handle any error that occurs during the request
       });
   };
-  
 
   return (
     <>
@@ -47,67 +47,67 @@ const [categories, setCategories] = useState([])
         </Typography>
       </CardContent>
 
-        {/* <Category categories={categories}/> */}
+      {/* <Category categories={categories}/> */}
 
-        {/* <div>
+      {/* <div>
         {categories.map(category => (
           <li key={category.id}>{category.name}</li>
         ))}  
         </div> */}
 
       <Grid container spacing={1}>
-      {categories.map((category) => (
-        <Grid item xs={4} key={category.id}>
-          <Card
-            sx={{
-              backgroundColor: '#8D99AE22',
-              color: '#2B2C42',
-              display: 'flex',
-              flexWrap: 'wrap',
-              flexDirection: 'row',
-              borderRadius: '20px',
-              justifyContent: 'center',
-            }}
-          >
-            <CardContent>
-              <Link 
-               to={{
-                pathname: `/category/${category.id}`,
-              }}
-              underline="none"
-              className="link"
-              >
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="h2"
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    paddingRight: '10px',
-                    color: '#2B2C42',
-                  }}
-                >
-                  {category.name}
-                </Typography>
-              </Link>
-              <CardMedia
-              component="img"
+        {categories.map((category) => (
+          <Grid item xs={4} key={category.id}>
+            <Card
               sx={{
-                height: '200px',
-                width: '250px',
-                display: 'flex',
-                margin: '10px',
-                borderRadius: '20px',
+                backgroundColor: "#8D99AE22",
+                color: "#2B2C42",
+                display: "flex",
+                flexWrap: "wrap",
+                flexDirection: "row",
+                borderRadius: "20px",
+                justifyContent: "center",
               }}
-              src={category.picture}
-              alt="category pic"
-            />
-            </CardContent>
-          </Card>
-        </Grid>
-      ))}
-    </Grid>
+            >
+              <CardContent>
+                <Link
+                  to={{
+                    pathname: `/category/${category.id}`,
+                  }}
+                  underline="none"
+                  className="link"
+                >
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="h2"
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      paddingRight: "10px",
+                      color: "#2B2C42",
+                    }}
+                  >
+                    {category.name}
+                  </Typography>
+                </Link>
+                <CardMedia
+                  component="img"
+                  sx={{
+                    height: "200px",
+                    width: "250px",
+                    display: "flex",
+                    margin: "10px",
+                    borderRadius: "20px",
+                  }}
+                  src={category.picture}
+                  alt="category pic"
+                />
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
     </>
   );
 }
