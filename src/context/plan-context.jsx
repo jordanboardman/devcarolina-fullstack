@@ -6,18 +6,9 @@ export const ShopContext = createContext();
 export const ShopContextProvider = (props) => {
   const [planItems, setPlanItems] = useState([]);
 
-  // const addToPlan = (itemId) => {
-  //   setPlanItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
-  // };
-
-  // Matt's
   const addToPlan = (newItem) => {
     setPlanItems((prev) => [...prev, newItem]);
   };
-
-  // const removeFromPlan = (itemId) => {
-  //   setPlanItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
-  // };
 
   // Matt's
   const removeFromPlan = (itemToRemove) => {

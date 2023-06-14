@@ -7,13 +7,9 @@ import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-// import FavoriteIcon from "@mui/icons-material/Favorite";
 import AddIcon from "@mui/icons-material/Add";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { ShopContext } from "../context/plan-context";
-import { DATA } from "../data";
-
-// USING AS PRODUCT FOR NOW
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -33,6 +29,7 @@ function Feature2Card(props) {
     setExpanded(!expanded);
   };
 
+  // Apart of the useContext work to User Profile.
   const { addToPlan } = useContext(ShopContext);
 
   const { id, description, website } = props.data;
@@ -53,6 +50,7 @@ function Feature2Card(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
+        {/* Where the cards add to user profile on click */}
         <IconButton aria-label="add to favorites" onClick={() => addToPlan(id)}>
           <AddIcon />
         </IconButton>

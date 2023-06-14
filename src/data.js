@@ -1,3 +1,4 @@
+// Dummy API for learning useContext
 export const DATA = [
   {
     id: 1,

@@ -27,6 +27,7 @@ import { ShopContextProvider } from "./context/plan-context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  // ShopContextProvider is what houses all of the actions in the plan-context. Has to wrap or else it won't work.
   <ShopContextProvider>
     <Router>
       <BaseLayout>

@@ -5,7 +5,6 @@ import UploadImage from "./UploadImage";
 import { ShopContext } from "../context/plan-context";
 import { DATA } from "../data";
 import PlanItem from "./PlanItem";
-// USING AS CART FOR NOW
 
 import {
   Paper,
@@ -178,15 +177,15 @@ function UserProfile() {
 
           <Grid container rowSpacing={1}>
             <Grid xs={4} sx={{ padding: "10px" }}>
-              {/* User's added cards should go here */}
-              <div>
+              {/* User's added cards populate here when addToPlan is clicked in Feature2Card */}
+              <Box>
                 {planItems.map((product) => {
                   if (planItems[product.id] !== 0) {
                     return <PlanItem data={product} />;
                   }
                   console.log(DATA);
                 })}
-              </div>
+              </Box>
             </Grid>
           </Grid>
         </Paper>

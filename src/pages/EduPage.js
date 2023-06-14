@@ -3,7 +3,6 @@ import Feature2Card from "../components/Feature2Card";
 import { Box, Typography } from "@mui/material";
 import { DATA } from "../data";
 
-// USING AS SHOP PAGE FOR NOW
 function EduPage() {
   return (
     <>
@@ -37,9 +36,10 @@ function EduPage() {
           borderRadius: "20px",
         }}
       >
-        {DATA.map((product) => (
+        {/* Here's where I mapped through the objects in the data.js file as a dummy API */}
+        {/* {DATA.map((product) => (
           <Feature2Card data={product} />
-        ))}
+        ))} */}
       </Box>
     </>
   );
