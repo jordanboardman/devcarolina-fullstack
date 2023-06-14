@@ -11,6 +11,7 @@ import About from "./components/About";
 import LogoutLink from "./components/LogoutLink";
 import UserShow from "./components/UserShow";
 import NonprofitsIndex from "./components/NonprofitIndex";
+import Category from "./components/Category";
 import HealthPage from "./pages/HealthPage";
 import EnvioPage from "./pages/EnvioPage";
 import WorldHunPage from "./pages/WorldHunPage";
@@ -41,13 +42,14 @@ root.render(
           <Route path="*" element={<Error />} />
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/about" element={<About />} />
-          <Route path="/healthpage" element={<HealthPage />} />
+          {/* <Route path="/healthpage" element={<HealthPage />} />
           <Route path="/enviopage" element={<EnvioPage />} />
           <Route path="/hungerpage" element={<WorldHunPage />} />
           <Route path="/emergpage" element={<EmergPage />} />
           <Route path="/edupage" element={<EduPage />} />
-          <Route path="/wildpage" element={<WildPage />} />
+          <Route path="/wildpage" element={<WildPage />} /> */}
           <Route path="/selectcatpage" element={<SelectCatPage />} />
+          <Route path="/category/:id" element={<Category />} />
         </Routes>
       </BaseLayout>
     </Router>

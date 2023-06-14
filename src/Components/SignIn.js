@@ -66,11 +66,6 @@ export default function SignIn() {
 
   return (
     <>
-      <div>
-        {errors.map((error) => (
-          <li key={error}> {error}</li>
-        ))}
-      </div>
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
@@ -126,6 +121,11 @@ export default function SignIn() {
               >
                 Sign In
               </Button>
+              <div>
+        {errors.map((error) => (
+          <li key={error}> {error}</li>
+              ))}
+            </div>
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">

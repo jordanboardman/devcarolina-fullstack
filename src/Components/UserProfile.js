@@ -66,7 +66,7 @@ function UserProfile() {
       >
         <Paper elevation={3}>
           {/* <button onClick={handleUserData}>GetUserData</button> */}
-          <UpdateUserProfile user={user} setUser={setUser} />
+          {/* <UpdateUserProfile user={user} setUser={setUser} /> */}
 
           <Box
             key={user}
@@ -105,7 +105,7 @@ function UserProfile() {
               />
             </Box>
             <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
-              <UploadImage user={user} setUser={setUser} />
+              {/* <UploadImage user={user} setUser={setUser} /> */}
             </Box>
             <Box marginTop={5} sx={{ display: "flex" }}>
               <Card sx={{ display: "flex", minWidth: 275 }}>
@@ -126,18 +126,6 @@ function UserProfile() {
                     <Typography>
                       monthly giving: {user["monthly_donation_amount"]}
                     </Typography>
-                  </Box>
-
-                  <Box marginTop={5}>
-                    <Avatar
-                      sx={{
-                        width: 175,
-                        height: 175,
-                      }}
-                      src={user["profile_picture"]}
-                      alt={user["name"]}
-                    />
-                    {/* <UploadImage user={user}  setUser={setUser} /> */}
                   </Box>
                   <Box sx={{ display: "flex" }}>
                     <UpdateUserProfile user={user} setUser={setUser} />
