@@ -32,7 +32,7 @@ function Feature2Card(props) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} style={{padding: "2em"}}>
       <Typography variant="h4">{props.name}</Typography>
 
       <CardMedia

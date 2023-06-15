@@ -64,6 +64,7 @@ const getCategory = () => {
             color: "#F1DBBF",
           }}
           variant="h2"
+          style = {{padding: ".4em"}}
         >
         {category}
         </Typography>
