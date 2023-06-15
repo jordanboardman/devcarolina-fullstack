@@ -126,7 +126,7 @@ function UserProfile() {
               />
             </Box>
             <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
-              {/* <UploadImage user={user} setUser={setUser} /> */}
+              <UploadImage user={user} setUser={setUser} />
             </Box>
             <Box marginTop={5} sx={{ display: "flex" }}>
               <Card sx={{ display: "flex", minWidth: 275 }}>

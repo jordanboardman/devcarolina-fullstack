@@ -4,9 +4,11 @@ import { useState } from 'react';
 // import { Typography } from '@mui/material';
 import { Button } from '@mui/material';
 // import Icon from '@mui/material/Icon';
+import './Styles/styles.css';
 
 function UploadImage({user}) {
   const [profilePicture, setProfilePicture] = useState(user.profile_picture);
+  const [clicked, setClicked] = useState(true);
 
   function handleProfilePictureChange(event) {
     const file = event.target.files[0];
@@ -14,11 +16,8 @@ function UploadImage({user}) {
     reader.onload = function(event) {
       setProfilePicture(event.target.result);
     };
-    // console.log("event.target.result")
-    // console.log(event.target.result)
-    // console.log("profilePicture")
-    // console.log(profilePicture)
     reader.readAsDataURL(file);
+    setClicked(false)
     }
 
     function handleProfileUpdate() {
@@ -35,27 +34,27 @@ function UploadImage({user}) {
   return (
     <div> 
 
-
+    {clicked ?
+    <div className="custom-file-upload">
+      <label htmlFor="profile-picture"></label>
+      <input
+        type="file"
+        id="profile-picture"
+        name="profile-picture"
+        accept="image/*"
+        onChange={handleProfilePictureChange}
+      /> 
+      </div>
+      : 
       <div>
-        <label htmlFor="profile-picture"></label>
-        <input
-          type="file"
-          id="profile-picture"
-          name="profile-picture"
-          accept="image/*"
-          onChange={handleProfilePictureChange}
-        /> 
-      
-        {/* <img src={profilePicture} alt="Profile" height="150px"/> */}
-        <Button variant="outlined"  size="small" onClick={handleProfileUpdate}>Update Profile</Button>
-      </div>
-      {/* <div>
-        <img src={profilePicture} alt="Profile" height="150px"/>
-      </div> */}
-      </div>
-      );
+      {/* <img src={profilePicture} alt="Profile" height="150px"/> */}
+      <Button variant="outlined"  size="small" onClick={handleProfileUpdate}>Update Profile</Button>
+    </div>}
+    {/* <div>
+      <img src={profilePicture} alt="Profile" height="150px"/>
+    </div> */}
+    </div>
+    );
 }
-
 export default UploadImage;
-
 

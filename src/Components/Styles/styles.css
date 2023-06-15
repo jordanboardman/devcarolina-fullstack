@@ -1,0 +1,21 @@
+.custom-file-upload input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.custom-file-upload input[type="file"]::before {
+  content: 'Change profile';
+  display: inline-block;
+  background: black;
+  color: #fff;
+  font-size: 13px;
+  padding: 5px 5px;
+  cursor: pointer;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
