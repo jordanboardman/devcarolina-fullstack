@@ -6,6 +6,7 @@ import HealthPic from "../photos/online-marketing-hIgeoQjS_iE-unsplash.jpg";
 import { Link } from "react-router-dom";
 import UpdateUserProfile from "./UpdateUserProfile";
 import UploadImage from "./UploadImage";
+import { Button } from "@mui/material";
 
 import {
   Paper,
@@ -42,6 +43,16 @@ function UserProfile() {
     isLoading: true,
     errors: null,
   });
+
+  const removeNonprofit = (nonprofitId) => {
+    console.log("removing") 
+    console.log(nonprofitId) 
+    const user_id = window.localStorage.getItem(`user_id`);
+    axios.get(`http://localhost:3000/user/${user_id}.json`)
+    .then(response =>
+      console.log(response.data))
+
+  }
 
   return (
     <React.Fragment>
@@ -159,7 +170,7 @@ function UserProfile() {
           <Grid container rowSpacing={1}>
             {nonprofits.map(nonprofit => (
             <Grid key={nonprofit.id} xs={4} sx={{ padding: "10px" }}>        
-              <Card
+              <Card 
                 sx={{
                   backgroundColor: "#8D99AE22",
                   color: "#2B2C42",
@@ -171,6 +182,7 @@ function UserProfile() {
                 }}
               >
                 <CardMedia
+                
                   component="img"
                   sx={{
                     height: "200px",
@@ -183,7 +195,7 @@ function UserProfile() {
                   alt="healthpic"
                 ></CardMedia>
                 <CardContent>
-                  <Link to="/students" underline="none" className="link">
+                  
                     <Typography
                       gutterBottom
                       variant="h5"
@@ -197,7 +209,9 @@ function UserProfile() {
                     >
                       {nonprofit.name}
                     </Typography>
-                  </Link>
+                    <Button onClick={() => removeNonprofit(nonprofit.id)}>
+                    Remove
+                  </Button>          
                   {/* <Typography>description of company 1</Typography> */}
                 </CardContent>
               </Card>
