@@ -36,8 +36,8 @@ function Feature2Card(props) {
   };
 
   const addToPlan= () => {
-    console.log(props)
-    axios.patch(`http://localhost:3000/user/23`, {my_new_nonprofit: props.id})
+    const user_id = window.localStorage.getItem(`user_id`);
+    axios.patch(`http://localhost:3000/user/${user_id}`, {my_new_nonprofit: props.id})
  .then(response => {
       console.log(response.data);
       setButtonText('Added!')

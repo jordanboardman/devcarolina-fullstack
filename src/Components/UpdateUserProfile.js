@@ -16,7 +16,7 @@ const UpdateUserProfile = ({ user }) => {
   const [email, setEmail] = useState(user.email);
   const [bio, setBio] = useState(user.bio)
   const [id, setId] = useState(user.id)
-  const [passion, setPassion] = useState(user.passion)
+  // const [passion, setPassion] = useState(user.passion)
   const [location, setLocation] = useState(user.location)
   const [modalOpen, setModalOpen] = useState(false);
   const [profilePicture, setProfilePicture] = useState(user.profile_picture);
@@ -41,7 +41,7 @@ const UpdateUserProfile = ({ user }) => {
     setEmail(user.email);
     setBio(user.bio);
     setId(user.id);
-    setPassion(user.passion);
+    // setPassion(user.passion);
     setLocation(user.location);
     setProfilePicture(user.profile_picture)
   };
@@ -53,7 +53,7 @@ const UpdateUserProfile = ({ user }) => {
     setEmail(user.email);
     setBio(user.bio);
     setId(user.id);
-    setPassion(user.passion);
+    // setPassion(user.passion);
     setLocation(user.location);
     setProfilePicture(user.profile_picture)
   };
@@ -67,6 +67,7 @@ const UpdateUserProfile = ({ user }) => {
       // Handle successful response from server
       // console.log(response.data);
       setUpdatedUser(response.data);
+      window.location.reload()
     })
     // window.location.href= "/profile"
     // .catch (error => {
@@ -119,9 +120,8 @@ const UpdateUserProfile = ({ user }) => {
          
           <br />
           <Grid item xs={4}>  
-          <Typography align="right">Location:</Typography>
+          <Typography align="right">Username:</Typography>
           </Grid>
-
           <Grid item xs={8}>
             <TextField
             fullWidth
@@ -135,14 +135,13 @@ const UpdateUserProfile = ({ user }) => {
           <Grid item xs={4}>  
           <Typography align="right">Bio:</Typography>
           </Grid>
-
           <Grid item xs={8}>
             <TextField
             fullWidth
              value={bio} onChange={(e) => setBio(e.target.value)} />
           </Grid>
 
-          <br />
+          {/* <br />
           <Grid item xs={4}>  
           <Typography align="right">Passion:</Typography>
           </Grid>
@@ -150,15 +149,26 @@ const UpdateUserProfile = ({ user }) => {
             <TextField
             fullWidth
              value={passion} onChange={(e) => setPassion(e.target.value)} />
-            </Grid>
+            </Grid> */}
+
+            <Grid item xs={4}>  
+          <Typography align="right">Location:</Typography>
+          </Grid>
+          <Grid item xs={8}>
+            <TextField
+            fullWidth
+             value={location} onChange={(e) => setLocation(e.target.value)} />
+          </Grid>
+
           </Grid>
           <br />
-          <Grid item xs={4}>  
+          
+          {/* <Grid item xs={4}>  
           <Typography align="right"> </Typography>
           <UploadImage user={user} value={profilePicture} onChange={(e) => setProfilePicture(e.target.result)} />
-          </Grid>
+          </Grid> */}
         
-          <Button onClick={() => handleSave({ name, email, bio, id, passion, location, profilePicture})}>Save</Button>
+          <Button onClick={() => handleSave({ name, email, bio, id, location, profilePicture})}>Save</Button>
           <Button onClick={handleCancel}>Cancel</Button>
         </form>
         </div>

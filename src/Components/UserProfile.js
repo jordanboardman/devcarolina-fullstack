@@ -111,9 +111,9 @@ function UserProfile() {
                   <Box>
                     <Typography>bio: {user["bio"]}</Typography>
                   </Box>
-                  <Box>
+                  {/* <Box>
                     <Typography> passion: {user["passion"]}</Typography>
-                  </Box>
+                  </Box> */}
                   <Box>
                     <Typography>location: {user["location"]}</Typography>
                   </Box>

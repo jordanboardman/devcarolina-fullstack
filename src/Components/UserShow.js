@@ -28,8 +28,8 @@ return(
   <br/>
  bio: {userData["bio"]}
   <br/>
- passion: {userData["passion"]}
-  <br/>
+ {/* passion: {userData["passion"]} */}
+  {/* <br/> */}
  profile_picture: {userData["profile_picture"]}
   <br/>
  location: {userData["location"]}
