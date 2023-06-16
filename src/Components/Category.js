@@ -47,6 +47,7 @@ const getCategory = () => {
 
 
   return (
+    
     <>
       <Box
         sx={{
@@ -81,6 +82,7 @@ const getCategory = () => {
       >
         {nonprofits.map(nonprofit => (
           <Feature2Card key={nonprofit.id}
+          id={nonprofit.id}
           name={nonprofit.name}
           description={nonprofit.description}
           picture={nonprofit.picture}

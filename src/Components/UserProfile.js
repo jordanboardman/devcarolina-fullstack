@@ -21,19 +21,18 @@ import axios from "axios";
 
 function UserProfile() {
   const [user, setUser] = useState({});
+  const [nonprofits, setNonprofits] = useState([])
 
   const handleUserShow = () => {
     console.log("inUsershowpage");
     const user_id = window.localStorage.getItem(`user_id`);
     console.log("user_id");
     console.log(user_id);
-    // console.log("props")
-    // console.log(user)
     axios.get(`http://localhost:3000/user/${user_id}.json`).then((response) => {
-      console.log(response.data.message);
-      console.log("Set User Data");
-      setUser(response.data.message);
-    });
+      console.log(response.data)
+      setUser(response.data);
+      setNonprofits(response.data["my_nonprofits"]);
+    })
   };
 
   useEffect(handleUserShow, []);
@@ -44,31 +43,6 @@ function UserProfile() {
     errors: null,
   });
 
-  // React.useEffect(() => {
-  //   axios
-  //     .get("https://randomuser.me/api/?results")
-  //     .then((response) =>
-  //       response.data.results.map((user) => ({
-  //         name: `${user.name.first} ${user.name.last}`,
-  //         fname: `${user.name.first}`,
-  //         username: `${user.login.username}`,
-  //         email: `${user.email}`,
-  //         image: `${user.picture.large}`,
-  //       }))
-  //     )
-  //     .then((users) => {
-  //       setPost({
-  //         users,
-  //         isLoading: false,
-  //       });
-  //     })
-  //     .catch((error) => setPost({ error, isLoading: false }));
-  // }, []);
-
-  // if (!post) return null;
-  function test() {
-    console.log("working");
-  }
   return (
     <React.Fragment>
       <Box
@@ -183,7 +157,8 @@ function UserProfile() {
           </Box>
 
           <Grid container rowSpacing={1}>
-            <Grid xs={4} sx={{ padding: "10px" }}>
+            {nonprofits.map(nonprofit => (
+            <Grid key={nonprofit.id} xs={4} sx={{ padding: "10px" }}>        
               <Card
                 sx={{
                   backgroundColor: "#8D99AE22",
@@ -204,7 +179,7 @@ function UserProfile() {
                     margin: "10px",
                     borderRadius: "20px",
                   }}
-                  src={HealthPic}
+                  src={nonprofit.picture}
                   alt="healthpic"
                 ></CardMedia>
                 <CardContent>
@@ -220,100 +195,14 @@ function UserProfile() {
                         color: "#2B2C42",
                       }}
                     >
-                      Health
+                      {nonprofit.name}
                     </Typography>
                   </Link>
                   {/* <Typography>description of company 1</Typography> */}
                 </CardContent>
               </Card>
             </Grid>
-
-            <Grid xs={4} sx={{ padding: "10px" }}>
-              <Card
-                sx={{
-                  backgroundColor: "#8D99AE22",
-                  color: "#2B2C42",
-                  display: "flex",
-                  flexWrap: "wrap",
-                  flexDirection: "row",
-                  borderRadius: "20px",
-                  justifyContent: "center",
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  sx={{
-                    height: "200px",
-                    width: "250px",
-                    display: "flex",
-                    margin: "10px",
-                    borderRadius: "20px",
-                  }}
-                  src={EducationPic}
-                  alt="education pic"
-                />
-                <CardContent>
-                  <Link to="/teachers" underline="none" className="link">
-                    <Typography
-                      gutterBottom
-                      variant="h5"
-                      component="h2"
-                      sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        color: "#2B2C42",
-                      }}
-                    >
-                      Education
-                    </Typography>
-                  </Link>
-                  {/* <Typography>description of Company 2</Typography> */}
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid xs={4} sx={{ padding: "10px" }}>
-              <Card
-                sx={{
-                  backgroundColor: "#8D99AE22",
-                  color: "#2B2C42",
-                  display: "flex",
-                  flexWrap: "wrap",
-                  flexDirection: "row",
-                  borderRadius: "20px",
-                  justifyContent: "center",
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  sx={{
-                    height: "200px",
-                    width: "250px",
-                    display: "flex",
-                    margin: "10px",
-                    borderRadius: "20px",
-                  }}
-                  src={WildlifePic}
-                  alt="wildlife pic"
-                />
-                <CardContent>
-                  <Link to="/teachers" underline="none" className="link">
-                    <Typography
-                      gutterBottom
-                      variant="h5"
-                      component="h2"
-                      sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        color: "#2B2C42",
-                      }}
-                    >
-                      Wildlife
-                    </Typography>
-                  </Link>
-                  {/* <Typography>description for company 3</Typography> */}
-                </CardContent>
-              </Card>
-            </Grid>
+            ))}
           </Grid>
         </Paper>
       </Box>

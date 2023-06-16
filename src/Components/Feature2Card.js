@@ -10,7 +10,8 @@ import Typography from "@mui/material/Typography";
 // import FavoriteIcon from "@mui/icons-material/Favorite";
 import AddIcon from "@mui/icons-material/Add";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
+import axios from 'axios';
+import {useState} from 'react'
 // GET call to the backend here
 
 const ExpandMore = styled((props) => {
@@ -24,12 +25,31 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
+
 function Feature2Card(props) {
   const [expanded, setExpanded] = React.useState(false);
+  const [nonprofits, setNonprofits]= useState([])
+  const [buttonText, setButtonText]= useState("Add To Plan")
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const addToPlan= () => {
+    console.log(props)
+    axios.patch(`http://localhost:3000/user/23`, {my_new_nonprofit: props.id})
+ .then(response => {
+      console.log(response.data);
+      setButtonText('Added!')
+ })
+  .catch(error => {
+    console.error('Error updating profile', error);
+  });
+
+
+  };
+
+
 
   return (
     <Card sx={{ maxWidth: 345 }} style={{padding: "2em"}}>
@@ -49,10 +69,10 @@ function Feature2Card(props) {
       <CardActions disableSpacing>
         {/* Here's where the GET request fuction will be called */}
         <IconButton aria-label="add to favorites">
-          <AddIcon />
+          <AddIcon onClick={addToPlan} />
         </IconButton>
         <Typography>
-          <b>Add to Plan</b>
+          <b>{buttonText}</b>
         </Typography>
 
         <ExpandMore
